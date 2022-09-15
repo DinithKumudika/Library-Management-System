@@ -118,7 +118,7 @@ public class homeAdmin extends javax.swing.JFrame {
         });
         pnlAdmin.add(btnIssueBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 230, 90));
 
-        getContentPane().add(pnlAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 770, 690));
+        getContentPane().add(pnlAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 770, 690));
 
         btnLogout.setBackground(new java.awt.Color(0, 204, 0));
         btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -129,11 +129,11 @@ public class homeAdmin extends javax.swing.JFrame {
                 btnLogoutActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 20, 150, 50));
+        getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 30, 150, 50));
 
         bgImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymgtsystem/assets/home_bg.jpg"))); // NOI18N
         bgImg.setText("jLabel1");
-        getContentPane().add(bgImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(bgImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1170, 840));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
