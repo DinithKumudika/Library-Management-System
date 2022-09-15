@@ -5,14 +5,19 @@
 package librarymgtsystem.ui.manageLibrarians;
 
 import java.sql.*;
+import java.util.List;
+import java.util.Vector;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import librarymgtsystem.app.librarian.Librarian;
 import librarymgtsystem.database.DBConnection;
 import librarymgtsystem.ui.addLibrarian.addLibrarian;
 import librarymgtsystem.ui.home.Admin.homeAdmin;
 import librarymgtsystem.ui.login.loginForm;
-import librarymgtsystem.ui.updateLibrarian.UpdateLibrarian;
+import librarymgtsystem.ui.updateLibrarian.updateLibrarian;
 
 /**
  *
@@ -26,8 +31,8 @@ public class manageLibrarians extends javax.swing.JFrame {
      */
     public manageLibrarians() {
         initComponents();
+        loadTable();
         //pnlAdmin.setBackground(new Color(0,0,0,150));
-        this.retrieveLibrarians();
     }
 
     /**
@@ -37,45 +42,67 @@ public class manageLibrarians extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     
-     private void retrieveLibrarians(){
-        try {
-            this.conn = DBConnection.connect();
-            Statement stmt = conn.createStatement();
-            String sql = "SELECT * FROM tbl_librarian";
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()){
-                int index = 0;
-                
-                int id = rs.getInt("ID");
-                String firstName = rs.getString("First name");
-                String lastName = rs.getString("Last name");
-                String username = rs.getString("username");
-                String password = rs.getString("password");
-                
-                Object[] row = {id, firstName, lastName, username, password};
-                
-                DefaultTableModel model = (DefaultTableModel) this.tblLibrarian.getModel();
-                
-                model.addRow(row);    
-            }
+    public static void loadAllDataIntoTable(List<Librarian> list){
+        DefaultTableModel tbl =(DefaultTableModel) tblLibrarian.getModel();
+        tbl.setRowCount(0);
+
+        for(Librarian librarian : list){
             
-        } 
-        catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
+            Vector v = new Vector();
+            v.add(librarian.getId());
+            v.add(librarian.getFirstName());
+            v.add(librarian.getLastName());
+            v.add(librarian.getUsername());
+            v.add(librarian.getPassword());
+         
+              tbl.addRow(v);
+            }
     }
+    
+     public static void loadTable(){
+        Librarian librarian = new Librarian();
+        List list = librarian.viewAllLibrarians();
+        loadAllDataIntoTable(list);
+    }
+    
+    
+//     private void retrieveLibrarians(){
+//        try {
+//            this.conn = DBConnection.connect();
+//            Statement stmt = conn.createStatement();
+//            String sql = "SELECT * FROM tbl_librarian";
+//            ResultSet rs = stmt.executeQuery(sql);
+//            while (rs.next()){
+//                int index = 0;
+//                
+//                int id = rs.getInt("ID");
+//                String firstName = rs.getString("First name");
+//                String lastName = rs.getString("Last name");
+//                String username = rs.getString("username");
+//                String password = rs.getString("password");
+//                
+//                Object[] row = {id, firstName, lastName, username, password};
+//                
+//                DefaultTableModel model = (DefaultTableModel) this.tblLibrarian.getModel();
+//                
+//                model.addRow(row);    
+//            }
+//            
+//        } 
+//        catch (SQLException e) {
+//            System.out.println(e.getMessage());
+//        }
+//    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         pnlAdmin = new javax.swing.JPanel();
-        userIco = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblLibrarian = new javax.swing.JTable();
         btnUpdateLibrarian = new javax.swing.JButton();
         btnAddLibrarian = new javax.swing.JButton();
         btnDeleteLibrarian = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
-        btnDashboard = new javax.swing.JButton();
         bgImg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,17 +111,10 @@ public class manageLibrarians extends javax.swing.JFrame {
         pnlAdmin.setBackground(new java.awt.Color(102, 102, 102));
         pnlAdmin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        userIco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymgtsystem/assets/user.png"))); // NOI18N
-        pnlAdmin.add(userIco, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 50));
-
         tblLibrarian.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tblLibrarian.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"0001", "Dinith", "Kumudika", "dinith"},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "ID", "First Name", "Last Name", "Username"
@@ -112,7 +132,7 @@ public class manageLibrarians extends javax.swing.JFrame {
                 btnUpdateLibrarianActionPerformed(evt);
             }
         });
-        pnlAdmin.add(btnUpdateLibrarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 120, 40));
+        pnlAdmin.add(btnUpdateLibrarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 140, 50));
 
         btnAddLibrarian.setBackground(new java.awt.Color(51, 204, 0));
         btnAddLibrarian.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -122,14 +142,19 @@ public class manageLibrarians extends javax.swing.JFrame {
                 btnAddLibrarianActionPerformed(evt);
             }
         });
-        pnlAdmin.add(btnAddLibrarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 120, 40));
+        pnlAdmin.add(btnAddLibrarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 140, 50));
 
         btnDeleteLibrarian.setBackground(new java.awt.Color(204, 0, 0));
         btnDeleteLibrarian.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnDeleteLibrarian.setText("Delete");
-        pnlAdmin.add(btnDeleteLibrarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 120, 40));
+        btnDeleteLibrarian.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteLibrarianActionPerformed(evt);
+            }
+        });
+        pnlAdmin.add(btnDeleteLibrarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 140, 50));
 
-        getContentPane().add(pnlAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 1180, 670));
+        getContentPane().add(pnlAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 1180, 680));
 
         btnLogout.setBackground(new java.awt.Color(0, 204, 0));
         btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -142,28 +167,12 @@ public class manageLibrarians extends javax.swing.JFrame {
         });
         getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 10, 150, 50));
 
-        btnDashboard.setBackground(new java.awt.Color(153, 102, 0));
-        btnDashboard.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymgtsystem/assets/dashboard.png"))); // NOI18N
-        btnDashboard.setText("Dashboard");
-        btnDashboard.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnDashboard.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDashboardActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 250, 70));
-
         bgImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymgtsystem/assets/home_bg.jpg"))); // NOI18N
         bgImg.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 0)), javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         getContentPane().add(bgImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1310, 780));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDashboardActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
@@ -181,35 +190,49 @@ public class manageLibrarians extends javax.swing.JFrame {
 
     private void btnUpdateLibrarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateLibrarianActionPerformed
         // TODO add your handling code here:
-        int  selectedRow = this.tblLibrarian.getSelectedRow();
+        
+         int  selectedRow = this.tblLibrarian.getSelectedRow();
+        if(selectedRow<0){
+            JOptionPane.showMessageDialog(null, "Please select any record to update");
+        }
+        else{
+            int id = (int)tblLibrarian.getValueAt(selectedRow, 0);
+            
+        }
+        
         int id = Integer.parseInt(this.tblLibrarian.getValueAt(selectedRow, 0).toString());
         String firstName = this.tblLibrarian.getValueAt(selectedRow, 1).toString();
         String lastName = this.tblLibrarian.getValueAt(selectedRow, 2).toString();
         String username = this.tblLibrarian.getValueAt(selectedRow, 3).toString();
         String password = this.tblLibrarian.getValueAt(selectedRow, 4).toString();
-        //String password = this.tblLibrarian.getValueAt(selectedRow, 4).toString();
         
-        JFrame UpdateLibrarianFrame = new UpdateLibrarian();
+        JFrame UpdateLibrarianFrame = new updateLibrarian();
         
-        //set name value got from table row to name textfield in UpdateLibrarian frame
-        JTextField firstNameField = UpdateLibrarian.tfFirstName;
+        JLabel librarianId = updateLibrarian.lblIdNo;
+        
+        //set first name value got from table row to first name textfield in UpdateLibrarian frame
+        JTextField firstNameField = updateLibrarian.tfFirstName;
         firstNameField.setText(firstName);
         
-        //set age Value got from table row to age textfield in UpdateLibrarian frame
-        JTextField lastNameField = UpdateLibrarian.tfLastName;
+        //set last name Value got from table row to last name textfield in UpdateLibrarian frame
+        JTextField lastNameField = updateLibrarian.tfLastName;
         lastNameField.setText(lastName);
         
-        //set address Value got from table row to age textfield in UpdateLibrarian frame
-        JTextField UsernameField = UpdateLibrarian.tfUsername;
+        //set username Value got from table row to username textfield in UpdateLibrarian frame
+        JTextField UsernameField = updateLibrarian.tfUsername;
         UsernameField.setText(username);
         
-        //set phone no Value got from table row to age textfield in UpdateLibrarian frame
-        JTextField passwordField = UpdateLibrarian.tfPassword;
+        //set password no Value got from table row to password textfield in UpdateLibrarian frame
+        JTextField passwordField = updateLibrarian.tfPassword;
         passwordField.setText(password);
         
         UpdateLibrarianFrame.setVisible(true);
         UpdateLibrarianFrame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btnUpdateLibrarianActionPerformed
+
+    private void btnDeleteLibrarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteLibrarianActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteLibrarianActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,13 +276,11 @@ public class manageLibrarians extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgImg;
     private javax.swing.JButton btnAddLibrarian;
-    private javax.swing.JButton btnDashboard;
     private javax.swing.JButton btnDeleteLibrarian;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnUpdateLibrarian;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel pnlAdmin;
-    private javax.swing.JTable tblLibrarian;
-    private javax.swing.JLabel userIco;
+    public static javax.swing.JTable tblLibrarian;
     // End of variables declaration//GEN-END:variables
 }

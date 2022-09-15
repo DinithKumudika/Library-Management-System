@@ -4,16 +4,20 @@
  */
 package librarymgtsystem.ui.updateLibrarian;
 
+import javax.swing.JOptionPane;
+import librarymgtsystem.app.librarian.Librarian;
+import librarymgtsystem.ui.manageLibrarians.manageLibrarians;
+
 /**
  *
  * @author Omicron
  */
-public class UpdateLibrarian extends javax.swing.JFrame {
+public class updateLibrarian extends javax.swing.JFrame {
 
     /**
      * Creates new form updateLibrarian
      */
-    public UpdateLibrarian() {
+    public updateLibrarian() {
         initComponents();
     }
 
@@ -39,6 +43,8 @@ public class UpdateLibrarian extends javax.swing.JFrame {
         tfLastName = new javax.swing.JTextField();
         formHeader = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        lblIdNo = new javax.swing.JLabel();
+        lblLibrarianId = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,17 +54,17 @@ public class UpdateLibrarian extends javax.swing.JFrame {
         lblPassword.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(153, 102, 0));
         lblPassword.setText("Password :");
-        formAddMember.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
+        formAddMember.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, -1, -1));
 
         lblFirstName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblFirstName.setForeground(new java.awt.Color(153, 102, 0));
         lblFirstName.setText("First Name :");
-        formAddMember.add(lblFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
+        formAddMember.add(lblFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
 
         lblUsername.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblUsername.setForeground(new java.awt.Color(153, 102, 0));
         lblUsername.setText("Username :");
-        formAddMember.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
+        formAddMember.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
 
         btnClear.setBackground(new java.awt.Color(255, 204, 0));
         btnClear.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -68,7 +74,7 @@ public class UpdateLibrarian extends javax.swing.JFrame {
                 btnClearActionPerformed(evt);
             }
         });
-        formAddMember.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, 130, 40));
+        formAddMember.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 130, 40));
 
         btnUpdate.setBackground(new java.awt.Color(0, 204, 0));
         btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -78,11 +84,11 @@ public class UpdateLibrarian extends javax.swing.JFrame {
                 btnUpdateActionPerformed(evt);
             }
         });
-        formAddMember.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 130, 40));
+        formAddMember.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 130, 40));
 
         tfPassword.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tfPassword.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 0)), javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        formAddMember.add(tfPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 280, 40));
+        formAddMember.add(tfPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 280, 40));
 
         tfFirstName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tfFirstName.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 0)), javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
@@ -91,20 +97,20 @@ public class UpdateLibrarian extends javax.swing.JFrame {
                 tfFirstNameActionPerformed(evt);
             }
         });
-        formAddMember.add(tfFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 280, 40));
+        formAddMember.add(tfFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 280, 40));
 
         tfUsername.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tfUsername.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 0)), javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        formAddMember.add(tfUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 280, 40));
+        formAddMember.add(tfUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 280, 40));
 
         lblLastName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblLastName.setForeground(new java.awt.Color(153, 102, 0));
         lblLastName.setText("Last Name :");
-        formAddMember.add(lblLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
+        formAddMember.add(lblLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
 
         tfLastName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tfLastName.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 0)), javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        formAddMember.add(tfLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 280, 40));
+        formAddMember.add(tfLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 280, 40));
 
         formHeader.setBackground(new java.awt.Color(153, 102, 0));
 
@@ -130,11 +136,20 @@ public class UpdateLibrarian extends javax.swing.JFrame {
 
         formAddMember.add(formHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 70));
 
+        lblIdNo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblIdNo.setForeground(new java.awt.Color(153, 102, 0));
+        formAddMember.add(lblIdNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, -1, -1));
+
+        lblLibrarianId.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblLibrarianId.setForeground(new java.awt.Color(153, 102, 0));
+        lblLibrarianId.setText("Librarian ID :");
+        formAddMember.add(lblLibrarianId, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 616, Short.MAX_VALUE)
+            .addGap(0, 570, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -164,10 +179,22 @@ public class UpdateLibrarian extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        String name = tfFirstName.getText();
-        int age = Integer.parseInt(tfLastName.getText());
-        String address = tfUsername.getText();
-        String phoneNo = tfPassword.getText();
+        int id = Integer.parseInt(lblIdNo.getText());
+        String firstName = tfFirstName.getText();
+        String lastName = tfLastName.getText();
+        String username = tfUsername.getText();
+        String password = tfPassword.getText();
+        
+        if(firstName.equals("") || lastName.equals("") || username.equals("")|| password.equals("")){
+            JOptionPane.showMessageDialog(null, "Book details are required!", "Alert", JOptionPane.WARNING_MESSAGE);
+        } 
+        else{
+            Librarian librarian = new Librarian(id, firstName, lastName, username, password);
+            librarian.update(id);
+            JOptionPane.showMessageDialog(null, "Book updated!", "Info", JOptionPane.INFORMATION_MESSAGE);
+            manageLibrarians mLibrarian = new manageLibrarians();
+            mLibrarian.loadTable();
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void tfFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFirstNameActionPerformed
@@ -191,13 +218,13 @@ public class UpdateLibrarian extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UpdateLibrarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(updateLibrarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UpdateLibrarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(updateLibrarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UpdateLibrarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(updateLibrarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UpdateLibrarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(updateLibrarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -205,7 +232,7 @@ public class UpdateLibrarian extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UpdateLibrarian().setVisible(true);
+                new updateLibrarian().setVisible(true);
             }
         });
     }
@@ -217,7 +244,9 @@ public class UpdateLibrarian extends javax.swing.JFrame {
     private javax.swing.JPanel formHeader;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblFirstName;
+    public static javax.swing.JLabel lblIdNo;
     private javax.swing.JLabel lblLastName;
+    private javax.swing.JLabel lblLibrarianId;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUsername;
     public static javax.swing.JTextField tfFirstName;
