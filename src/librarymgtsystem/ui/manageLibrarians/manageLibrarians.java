@@ -67,9 +67,9 @@ public class manageLibrarians extends javax.swing.JFrame {
         List list = librarian.viewAllLibrarians();
         loadAllDataIntoTable(list);
     }
-    
-        
-    
+     
+     
+     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
