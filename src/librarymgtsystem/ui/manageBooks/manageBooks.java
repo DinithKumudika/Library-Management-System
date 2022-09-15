@@ -321,10 +321,10 @@ public class manageBooks extends javax.swing.JFrame {
         
         JFrame updateBook = new UpdateBook();
         
-        JTextField bookId = UpdateBook.tfBookId;
+        JLabel bookId = UpdateBook.lblIdNo;
         bookId.setText(id);
         
-        JTextField bookTitle = UpdateBook.tfBookId;
+        JTextField bookTitle = UpdateBook.tfBookTitle;
         bookTitle.setText(title);
         
         JTextField bookAuthor= UpdateBook.tfAuthor;

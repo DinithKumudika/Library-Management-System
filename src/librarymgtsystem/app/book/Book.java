@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import librarymgtsystem.database.DBConnection;
+import librarymgtsystem.ui.manageBooks.manageBooks;
 import static librarymgtsystem.ui.manageBooks.manageBooks.loadTable;
 
 /**
@@ -172,6 +173,7 @@ public class Book extends DBConnection{
             int rs = pst.executeUpdate();
             if(rs > 0) {
     			System.out.println(rs + " rows inserted");
+                        manageBooks.loadTable();
     		}
     		else {
     			System.out.println("Insertion unsuccessful");
@@ -300,13 +302,18 @@ public class Book extends DBConnection{
             pst.setString(3, this.author);
             pst.setString(4, this.publisher);
             pst.setString(5, this.category);
-            pst.setString(6, this.publisher);
-            pst.setInt(5,this.availability);
+            pst.setInt(6,this.availability);
+            pst.setInt(7, this.id);
             
             int resultRows = pst.executeUpdate();
             
-            System.out.println(resultRows + " rows updated");
-            
+            if (resultRows > 0) {
+                System.out.println("Book updated");
+                manageBooks.loadTable();
+            }
+            else{
+                System.out.println("Book update failed");
+            }  
         }
         catch(SQLException e){
             e.getMessage();
@@ -321,7 +328,7 @@ public class Book extends DBConnection{
 
             if (r > 0) {
                 JOptionPane.showMessageDialog(null, "A book has been deleted successfully");
-                loadTable();
+                manageBooks.loadTable();
             }
             else {
                 JOptionPane.showMessageDialog(null, "A book has not been deleted successfully");

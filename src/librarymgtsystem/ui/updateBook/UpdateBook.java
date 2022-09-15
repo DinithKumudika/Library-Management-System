@@ -21,13 +21,6 @@ public class UpdateBook extends javax.swing.JFrame {
      */
     public UpdateBook() {
         initComponents();
-        String id = tfBookId.getText();
-        String name = tfBookId.getText();
-        String isbn = tfISBN.getText();
-        String author = tfAuthor.getText();
-        String publisher = tfPublisher.getText();
-        String category = (String) cmbCategory.getSelectedItem();
-        String availability = (String)cmbAvailability.getSelectedItem();
     }
 
     /**
@@ -44,7 +37,6 @@ public class UpdateBook extends javax.swing.JFrame {
         lblPublisher = new javax.swing.JLabel();
         btnClear = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
-        tfBookId = new javax.swing.JTextField();
         tfPublisher = new javax.swing.JTextField();
         lblAuthor = new javax.swing.JLabel();
         tfAuthor = new javax.swing.JTextField();
@@ -54,10 +46,11 @@ public class UpdateBook extends javax.swing.JFrame {
         lblISBN = new javax.swing.JLabel();
         cmbAvailability = new javax.swing.JComboBox<>();
         lblISBN1 = new javax.swing.JLabel();
-        lblBookTitle1 = new javax.swing.JLabel();
+        lblBookId = new javax.swing.JLabel();
         cmbCategory = new javax.swing.JComboBox<>();
         lblBookTitle = new javax.swing.JLabel();
         tfBookTitle = new javax.swing.JTextField();
+        lblIdNo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -70,12 +63,12 @@ public class UpdateBook extends javax.swing.JFrame {
         lblCategory.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblCategory.setForeground(new java.awt.Color(153, 102, 0));
         lblCategory.setText("Category :");
-        formAddMember.add(lblCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
+        formAddMember.add(lblCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, -1, -1));
 
         lblPublisher.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblPublisher.setForeground(new java.awt.Color(153, 102, 0));
         lblPublisher.setText("Publisher :");
-        formAddMember.add(lblPublisher, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
+        formAddMember.add(lblPublisher, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
 
         btnClear.setBackground(new java.awt.Color(255, 204, 0));
         btnClear.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -99,27 +92,18 @@ public class UpdateBook extends javax.swing.JFrame {
         });
         formAddMember.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 550, 130, 40));
 
-        tfBookId.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        tfBookId.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 0)), javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        tfBookId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfBookIdActionPerformed(evt);
-            }
-        });
-        formAddMember.add(tfBookId, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 280, 40));
-
         tfPublisher.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tfPublisher.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 0)), javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        formAddMember.add(tfPublisher, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 280, 40));
+        formAddMember.add(tfPublisher, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 280, 40));
 
         lblAuthor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblAuthor.setForeground(new java.awt.Color(153, 102, 0));
         lblAuthor.setText("Author :");
-        formAddMember.add(lblAuthor, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
+        formAddMember.add(lblAuthor, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
 
         tfAuthor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tfAuthor.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 0)), javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        formAddMember.add(tfAuthor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 280, 40));
+        formAddMember.add(tfAuthor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 280, 40));
 
         formHeader.setBackground(new java.awt.Color(153, 102, 0));
 
@@ -147,12 +131,12 @@ public class UpdateBook extends javax.swing.JFrame {
 
         tfISBN.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tfISBN.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 0)), javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        formAddMember.add(tfISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 280, 40));
+        formAddMember.add(tfISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 280, 40));
 
         lblISBN.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblISBN.setForeground(new java.awt.Color(153, 102, 0));
         lblISBN.setText("Availability :");
-        formAddMember.add(lblISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, -1));
+        formAddMember.add(lblISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 480, -1, -1));
 
         cmbAvailability.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cmbAvailability.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Unavailable" }));
@@ -161,26 +145,26 @@ public class UpdateBook extends javax.swing.JFrame {
                 cmbAvailabilityActionPerformed(evt);
             }
         });
-        formAddMember.add(cmbAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 280, 40));
+        formAddMember.add(cmbAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 470, 280, 40));
 
         lblISBN1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblISBN1.setForeground(new java.awt.Color(153, 102, 0));
         lblISBN1.setText("ISBN :");
-        formAddMember.add(lblISBN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, -1, -1));
+        formAddMember.add(lblISBN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, -1));
 
-        lblBookTitle1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblBookTitle1.setForeground(new java.awt.Color(153, 102, 0));
-        lblBookTitle1.setText("Book Id :");
-        formAddMember.add(lblBookTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
+        lblBookId.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblBookId.setForeground(new java.awt.Color(153, 102, 0));
+        lblBookId.setText("Book Id :");
+        formAddMember.add(lblBookId, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
         cmbCategory.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cmbCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select category...", "Health & Lifestyle", "ART/architecture", "Technology", "Science fiction", "Adventure", "Romance", "Satire", "History", "Mathematics", "Business", "Travel", "Encyclopedia", "Biography", "Religion" }));
-        formAddMember.add(cmbCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 280, 40));
+        formAddMember.add(cmbCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 280, 40));
 
         lblBookTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblBookTitle.setForeground(new java.awt.Color(153, 102, 0));
         lblBookTitle.setText("Book Title :");
-        formAddMember.add(lblBookTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
+        formAddMember.add(lblBookTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
 
         tfBookTitle.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tfBookTitle.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 0)), javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
@@ -189,16 +173,21 @@ public class UpdateBook extends javax.swing.JFrame {
                 tfBookTitleActionPerformed(evt);
             }
         });
-        formAddMember.add(tfBookTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 280, 40));
+        formAddMember.add(tfBookTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 280, 40));
+
+        lblIdNo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblIdNo.setForeground(new java.awt.Color(153, 102, 0));
+        formAddMember.add(lblIdNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
 
         getContentPane().add(formAddMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 720));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         // TODO add your handling code here:
-       tfBookId.setText("");
+        tfBookTitle.setText("");
         tfISBN.setText("");
         tfAuthor.setText("");
         tfPublisher.setText("");
@@ -241,7 +230,7 @@ public class UpdateBook extends javax.swing.JFrame {
             } 
         }
         */
-        String id = tfBookId.getText();
+        int id = Integer.parseInt(lblIdNo.getText()); 
         String title = tfBookTitle.getText();
         String isbn = tfISBN.getText();
         String author = tfAuthor.getText();
@@ -261,18 +250,13 @@ public class UpdateBook extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Book details are required!", "Alert", JOptionPane.WARNING_MESSAGE);
         } 
         else{
-            Book book = new Book(Integer.parseInt(id), title, Integer.parseInt(isbn), author, publisher, category, av);
-     //     String memeberId = lblIdNo.getText();
-            book.update(Integer.parseInt(id));
+            Book book = new Book(id, title, Integer.parseInt(isbn), author, publisher, category, av);
+            book.update(id);
             JOptionPane.showMessageDialog(null, "Book updated!", "Info", JOptionPane.INFORMATION_MESSAGE);
             manageBooks mBooks = new manageBooks();
             mBooks.loadTable();
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
-
-    private void tfBookIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfBookIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfBookIdActionPerformed
 
     private void cmbAvailabilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAvailabilityActionPerformed
         // TODO add your handling code here:
@@ -329,14 +313,14 @@ public class UpdateBook extends javax.swing.JFrame {
     private javax.swing.JPanel formHeader;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblAuthor;
+    private javax.swing.JLabel lblBookId;
     private javax.swing.JLabel lblBookTitle;
-    private javax.swing.JLabel lblBookTitle1;
     private javax.swing.JLabel lblCategory;
     private javax.swing.JLabel lblISBN;
     private javax.swing.JLabel lblISBN1;
+    public static javax.swing.JLabel lblIdNo;
     private javax.swing.JLabel lblPublisher;
     public static javax.swing.JTextField tfAuthor;
-    public static javax.swing.JTextField tfBookId;
     public static javax.swing.JTextField tfBookTitle;
     public static javax.swing.JTextField tfISBN;
     public static javax.swing.JTextField tfPublisher;
