@@ -293,4 +293,40 @@ public class Book extends DBConnection{
             e.printStackTrace();
 	}
     }
+    
+    private void issueBook(int bookId, int memberId, String issuedDate, String returnDate){
+        try {
+            String sql = "INSERT INTO `tbl_books_issued` (`issued_Date`,`return_Date`,`book_ID`,`member_ID`) VALUES (?,?,?,?)";
+            PreparedStatement pst = this.conn.prepareStatement(sql);
+            pst.setDate(1, java.sql.Date.valueOf(issuedDate));
+            pst.setDate(2, java.sql.Date.valueOf(returnDate));
+            pst.setInt(3, bookId);
+            pst.setInt(4, memberId);
+        } 
+        catch (SQLException e) {
+            e.getMessage();
+        } 
+    }
+    
+    public void setIssueBookDetails(int bookId, int memberId, String issuedDate, String returnDate){
+        this.issueBook(bookId, memberId, issuedDate, returnDate);
+    }
+    
+    private void returnBook(int bookId, int memberId, String returnedDate){
+        try {
+            String sql = "INSERT INTO `tbl_books_returned` (`book_ID`,`member_ID`,`returned_date`) VALUES (?,?,?)";
+            PreparedStatement pst = this.conn.prepareStatement(sql);
+            pst.setInt(1, bookId);
+            pst.setInt(2, memberId);
+            pst.setDate(3, java.sql.Date.valueOf(returnedDate));
+        } 
+        catch (SQLException e) {
+            e.getMessage();
+        } 
+    }
+    
+    
+    public void setReturnBookDetails(int bookId, int memberId, String returnedDate){
+        this.returnBook(bookId, memberId, returnedDate);
+    }
 }

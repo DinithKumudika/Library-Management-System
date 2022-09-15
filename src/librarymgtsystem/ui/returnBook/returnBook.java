@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package librarymgtsystem.ui.issueBook;
+package librarymgtsystem.ui.returnBook;
 
 import librarymgtsystem.app.book.Book;
 
@@ -10,12 +10,12 @@ import librarymgtsystem.app.book.Book;
  *
  * @author Dinith
  */
-public class issueBook extends javax.swing.JFrame {
+public class returnBook extends javax.swing.JFrame {
 
     /**
-     * Creates new form issueBook
+     * Creates new form returnBook
      */
-    public issueBook() {
+    public returnBook() {
         initComponents();
     }
 
@@ -28,30 +28,25 @@ public class issueBook extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPopupMenu1 = new javax.swing.JPopupMenu();
         sideBar = new javax.swing.JPanel();
         btnReturnBook = new javax.swing.JButton();
         btnDashboard = new javax.swing.JButton();
         btnAddMember = new javax.swing.JButton();
         btnAddBook = new javax.swing.JButton();
-        btnLogout = new javax.swing.JButton();
         formAddMember = new javax.swing.JPanel();
         lblPhone = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
-        lblAddress = new javax.swing.JLabel();
         btnClear = new javax.swing.JButton();
-        btnIssue = new javax.swing.JButton();
+        btnReturn = new javax.swing.JButton();
         tfBookId = new javax.swing.JTextField();
         lblAge = new javax.swing.JLabel();
         tfMemberId = new javax.swing.JTextField();
         formHeader = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        cmbReturnedYear = new javax.swing.JComboBox<>();
-        cmbReturnedDate = new javax.swing.JComboBox<>();
-        cmbReturnedMonth = new javax.swing.JComboBox<>();
-        cmbIssueYear = new javax.swing.JComboBox<>();
-        cmbIssueMonth = new javax.swing.JComboBox<>();
-        cmbIssueDate = new javax.swing.JComboBox<>();
+        cmbReturnYear = new javax.swing.JComboBox<>();
+        cmbReturnDate = new javax.swing.JComboBox<>();
+        cmbReturnMonth = new javax.swing.JComboBox<>();
+        btnLogout = new javax.swing.JButton();
         bgImg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -111,35 +106,18 @@ public class issueBook extends javax.swing.JFrame {
 
         getContentPane().add(sideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 780));
 
-        btnLogout.setBackground(new java.awt.Color(0, 204, 0));
-        btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(0, 0, 0));
-        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymgtsystem/assets/log-out.png"))); // NOI18N
-        btnLogout.setText("Logout");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 10, 150, 50));
-
         formAddMember.setBackground(new java.awt.Color(204, 204, 204));
         formAddMember.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblPhone.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblPhone.setForeground(new java.awt.Color(153, 102, 0));
         lblPhone.setText("Return Date :");
-        formAddMember.add(lblPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
+        formAddMember.add(lblPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
 
         lblName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblName.setForeground(new java.awt.Color(153, 102, 0));
         lblName.setText("Book ID :");
         formAddMember.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
-
-        lblAddress.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblAddress.setForeground(new java.awt.Color(153, 102, 0));
-        lblAddress.setText("Issue Date :");
-        formAddMember.add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
 
         btnClear.setBackground(new java.awt.Color(255, 204, 0));
         btnClear.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -152,16 +130,16 @@ public class issueBook extends javax.swing.JFrame {
         });
         formAddMember.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 130, 40));
 
-        btnIssue.setBackground(new java.awt.Color(0, 204, 0));
-        btnIssue.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnIssue.setForeground(new java.awt.Color(0, 0, 0));
-        btnIssue.setText("Add");
-        btnIssue.addActionListener(new java.awt.event.ActionListener() {
+        btnReturn.setBackground(new java.awt.Color(0, 204, 0));
+        btnReturn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnReturn.setForeground(new java.awt.Color(0, 0, 0));
+        btnReturn.setText("Return Book");
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIssueActionPerformed(evt);
+                btnReturnActionPerformed(evt);
             }
         });
-        formAddMember.add(btnIssue, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 130, 40));
+        formAddMember.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 170, 40));
 
         tfBookId.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tfBookId.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 0)), javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
@@ -186,7 +164,7 @@ public class issueBook extends javax.swing.JFrame {
         jLabel5.setBackground(new java.awt.Color(153, 102, 0));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("  Issue a Book");
+        jLabel5.setText("  Return a Book");
 
         javax.swing.GroupLayout formHeaderLayout = new javax.swing.GroupLayout(formHeader);
         formHeader.setLayout(formHeaderLayout);
@@ -205,35 +183,38 @@ public class issueBook extends javax.swing.JFrame {
 
         formAddMember.add(formHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 70));
 
-        cmbReturnedYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2021", "2022", "2022" }));
-        cmbReturnedYear.addActionListener(new java.awt.event.ActionListener() {
+        cmbReturnYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2021", "2022", "2022" }));
+        cmbReturnYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbReturnedYearActionPerformed(evt);
+                cmbReturnYearActionPerformed(evt);
             }
         });
-        formAddMember.add(cmbReturnedYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 80, 40));
+        formAddMember.add(cmbReturnYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 80, 40));
 
-        cmbReturnedDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Date", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        formAddMember.add(cmbReturnedDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 80, 40));
-
-        cmbReturnedMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec" }));
-        formAddMember.add(cmbReturnedMonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 80, 40));
-
-        cmbIssueYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2021", "2022", "2022" }));
-        cmbIssueYear.addActionListener(new java.awt.event.ActionListener() {
+        cmbReturnDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Date", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        cmbReturnDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbIssueYearActionPerformed(evt);
+                cmbReturnDateActionPerformed(evt);
             }
         });
-        formAddMember.add(cmbIssueYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 80, 40));
+        formAddMember.add(cmbReturnDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 80, 40));
 
-        cmbIssueMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec" }));
-        formAddMember.add(cmbIssueMonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 80, 40));
-
-        cmbIssueDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Date", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        formAddMember.add(cmbIssueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 80, 40));
+        cmbReturnMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec" }));
+        formAddMember.add(cmbReturnMonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 80, 40));
 
         getContentPane().add(formAddMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 570, 720));
+
+        btnLogout.setBackground(new java.awt.Color(0, 204, 0));
+        btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(0, 0, 0));
+        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymgtsystem/assets/log-out.png"))); // NOI18N
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 10, 150, 50));
 
         bgImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymgtsystem/assets/home_bg.jpg"))); // NOI18N
         getContentPane().add(bgImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1310, 780));
@@ -249,47 +230,44 @@ public class issueBook extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDashboardActionPerformed
 
+    private void btnAddBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBookActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddBookActionPerformed
+
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnClearActionPerformed
 
-    private void btnIssueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIssueActionPerformed
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         // TODO add your handling code here:
         int bookId = Integer.parseInt(tfBookId.getText());
         int memberId = Integer.parseInt(tfMemberId.getText());
-        String issuedYear = cmbIssueYear.getSelectedItem().toString();
-        String issuedMonth = cmbIssueMonth.getSelectedItem().toString();
-        String issuedDate = cmbIssueDate.getSelectedItem().toString();
-        String returnYear = cmbReturnedYear.getSelectedItem().toString();
-        String returnMonth = cmbReturnedMonth.getSelectedItem().toString();
-        String returnDate = cmbReturnedDate.getSelectedItem().toString();
+        String returnedYear = cmbReturnYear.getSelectedItem().toString();
+        String returnedMonth = cmbReturnMonth.getSelectedItem().toString();
+        String returnedDate = cmbReturnDate.getSelectedItem().toString();
         
-        String issuedDay = issuedYear +"-" + issuedMonth + "-" + issuedDate;
-        String returnDay = returnYear + "-" + returnMonth + "-" + returnDate;
+        String returnDate = returnedYear + "-" + returnedMonth + "-" + returnedDate;
          
         Book book = new Book();
-        book.setIssueBookDetails(bookId, memberId, issuedDate, returnDate);
-    }//GEN-LAST:event_btnIssueActionPerformed
+        
+        book.setReturnBookDetails(bookId, memberId, returnDate);
+    }//GEN-LAST:event_btnReturnActionPerformed
 
     private void tfBookIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfBookIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfBookIdActionPerformed
 
+    private void cmbReturnYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbReturnYearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbReturnYearActionPerformed
+
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLogoutActionPerformed
 
-    private void btnAddBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBookActionPerformed
+    private void cmbReturnDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbReturnDateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddBookActionPerformed
-
-    private void cmbReturnedYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbReturnedYearActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbReturnedYearActionPerformed
-
-    private void cmbIssueYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbIssueYearActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbIssueYearActionPerformed
+    }//GEN-LAST:event_cmbReturnDateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -308,21 +286,20 @@ public class issueBook extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(issueBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(returnBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(issueBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(returnBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(issueBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(returnBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(issueBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(returnBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new issueBook().setVisible(true);
+                new returnBook().setVisible(true);
             }
         });
     }
@@ -333,20 +310,15 @@ public class issueBook extends javax.swing.JFrame {
     private javax.swing.JButton btnAddMember;
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnDashboard;
-    private javax.swing.JButton btnIssue;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnReturn;
     private javax.swing.JButton btnReturnBook;
-    private javax.swing.JComboBox<String> cmbIssueDate;
-    private javax.swing.JComboBox<String> cmbIssueMonth;
-    private javax.swing.JComboBox<String> cmbIssueYear;
-    private javax.swing.JComboBox<String> cmbReturnedDate;
-    private javax.swing.JComboBox<String> cmbReturnedMonth;
-    private javax.swing.JComboBox<String> cmbReturnedYear;
+    private javax.swing.JComboBox<String> cmbReturnDate;
+    private javax.swing.JComboBox<String> cmbReturnMonth;
+    private javax.swing.JComboBox<String> cmbReturnYear;
     private javax.swing.JPanel formAddMember;
     private javax.swing.JPanel formHeader;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPopupMenu jPopupMenu1;
-    private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPhone;
