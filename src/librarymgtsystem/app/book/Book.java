@@ -319,16 +319,15 @@ public class Book extends DBConnection{
             e.getMessage();
         }
     }
-    public void deleteBook(int id){
+   public void deleteBook(int id){
         try{
-            String sql = "delete from `tbl_books` where ID = ?";
+            String sql = "delete from tbl_books where ID ="+id+"";
             PreparedStatement pst = this.conn.prepareStatement(sql);
-            pst.setInt(1, id);
             int r = pst.executeUpdate(sql);
 
             if (r > 0) {
                 JOptionPane.showMessageDialog(null, "A book has been deleted successfully");
-                manageBooks.loadTable();
+                loadTable();
             }
             else {
                 JOptionPane.showMessageDialog(null, "A book has not been deleted successfully");
@@ -338,7 +337,6 @@ public class Book extends DBConnection{
             e.printStackTrace();
 	}
     }
-    
     private void issueBook(int bookId, int memberId, String issuedDate, String returnDate){
         try {
             String sql = "INSERT INTO `tbl_books_issued` (`issued_date`,`return_date`,`book_ID`,`member_ID`) VALUES (?,?,?,?)";
