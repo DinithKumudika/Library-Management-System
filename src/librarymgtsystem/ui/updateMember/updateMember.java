@@ -144,7 +144,6 @@ public class updateMember extends javax.swing.JFrame {
 
         lblIdNo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblIdNo.setForeground(new java.awt.Color(153, 102, 0));
-        lblIdNo.setText("01");
         formAddMember.add(lblIdNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, -1, -1));
 
         getContentPane().add(formAddMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 720));
@@ -164,11 +163,12 @@ public class updateMember extends javax.swing.JFrame {
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
         
+        int id = Integer.parseInt(lblIdNo.getText());
         String name = tfName.getText();
         int age = Integer.parseInt(tfAge.getText());
         String address = tfAddress.getText();
         String phoneNo = tfPhone.getText();
-        int id = Integer.parseInt(lblIdNo.getText());
+        
         Member member = new Member();
         member.updateMember(id, name, age, address, phoneNo);
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -227,7 +227,7 @@ public class updateMember extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblAge;
-    private javax.swing.JLabel lblIdNo;
+    public static javax.swing.JLabel lblIdNo;
     private javax.swing.JLabel lblMemberId;
     private javax.swing.JLabel lblName1;
     private javax.swing.JLabel lblPhone;

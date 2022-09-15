@@ -8,6 +8,7 @@ import java.sql.*;
 import java.util.List;
 import java.util.Vector;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import librarymgtsystem.app.member.Member;
@@ -268,6 +269,9 @@ public class manageMembers extends javax.swing.JFrame {
         String phone = this.tblMembers.getValueAt(selectedRow, 4).toString();
         
         JFrame updateMemberFrame = new updateMember();
+        
+        JLabel memberIDLable = updateMember.lblIdNo;
+        memberIDLable.setText(Integer.toString(id));
         
         //set name value got from table row to name textfield in UpdateMember frame
         JTextField nameField = updateMember.tfName;
