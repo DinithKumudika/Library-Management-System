@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 import librarymgtsystem.app.book.Book;
 import librarymgtsystem.database.DBConnection;
 import librarymgtsystem.ui.addBook.addBook;
-import librarymgtsystem.ui.addMember.AddMember;
+import librarymgtsystem.ui.addMember.addMember;
 import librarymgtsystem.ui.home.Librarian.homeLibrarian;
 import librarymgtsystem.ui.login.loginForm;
 import librarymgtsystem.ui.updateBook.UpdateBook;

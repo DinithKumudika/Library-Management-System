@@ -5,12 +5,14 @@
 package librarymgtsystem.ui.manageMembers;
 
 import java.sql.*;
+import java.util.List;
+import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import librarymgtsystem.app.member.Member;
 import librarymgtsystem.database.DBConnection;
-import librarymgtsystem.ui.addMember.AddMember;
+import librarymgtsystem.ui.addMember.addMember;
 import librarymgtsystem.ui.home.Librarian.homeLibrarian;
 import librarymgtsystem.ui.login.loginForm;
 import librarymgtsystem.ui.updateMember.updateMember;
@@ -26,7 +28,7 @@ public class manageMembers extends javax.swing.JFrame {
      */
     public manageMembers() {
         initComponents();
-        this.retrieveMembers();
+        loadTable();
     }
 
     /**
@@ -195,33 +197,29 @@ public class manageMembers extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void retrieveMembers(){
-        try {
-            this.conn = DBConnection.connect();
-            Statement stmt = conn.createStatement();
-            String sql = "SELECT * FROM tbl_member";
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()){
-                int index = 0;
-                
-                int id = rs.getInt("ID");
-                String name = rs.getString("name");
-                int age = rs.getInt("age");
-                String address = rs.getString("address");
-                String phoneNo = rs.getString("phone no");
-                
-                Object[] row = {id, name, age, address, phoneNo};
-                
-                DefaultTableModel model = (DefaultTableModel) this.tblMembers.getModel();
-                
-                model.addRow(row);    
-            }
- 
-        } 
-        catch (SQLException e) {
-            System.out.println(e.getMessage());
+    public static void loadAllDataIntoTable(List<Member> list){
+        DefaultTableModel tbl =(DefaultTableModel) tblMembers.getModel();
+        tbl.setRowCount(0);
+
+        for(Member member : list){
+            Vector v = new Vector();
+            v.add(member.getId());
+            v.add(member.getName());
+            v.add(member.getAge());
+            v.add(member.getAddress());
+            v.add(member.getPhoneNo());
+            
+            tbl.addRow(v);
         }
+        
     }
+    
+    public static void loadTable(){
+        Member meber = new Member();
+        List list = meber.viewAllMembers();
+        loadAllDataIntoTable(list);
+    }
+    
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
         this.dispose();
@@ -255,7 +253,7 @@ public class manageMembers extends javax.swing.JFrame {
 
     private void btnAddMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMemberActionPerformed
         // TODO add your handling code here:
-        JFrame addMember = new AddMember();
+        JFrame addMember = new addMember();
         addMember.setVisible(true);
         addMember.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btnAddMemberActionPerformed
@@ -366,6 +364,6 @@ public class manageMembers extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pnlUser;
     private javax.swing.JPanel sideBar;
-    private javax.swing.JTable tblMembers;
+    private static javax.swing.JTable tblMembers;
     // End of variables declaration//GEN-END:variables
 }

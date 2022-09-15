@@ -44,6 +44,15 @@ public class Book extends DBConnection{
         this.category = category;
         this.availability = availability;
     }
+    
+    public Book(String title, int isbn, String author, String publisher, String category, int availability) {
+        this.title = title;
+        this.isbn = isbn;
+        this.author = author;
+        this.publisher = publisher;
+        this.category = category;
+        this.availability = availability;
+    }
 
     public Book() {
        // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -207,35 +216,35 @@ public class Book extends DBConnection{
         return book;
         }
     
-    public Book viewdata(int id){
-        Book b = null;
-        
-        try{
-           String sql = "select * from tbl_books where id ="+id+"";
-                        PreparedStatement pst = this.conn.prepareStatement(sql);
-                        ResultSet rs = pst.executeQuery();
-	    		
-	    		while(rs.next()) {
-	    			int ids = rs.getInt("Id");
-	    			String title = rs.getString("Title");
-                                int isbn =rs.getInt("ISBN");
-                                String author =rs.getString("Author");
-                                String publisher =rs.getString("publisher");
-                                String category = rs.getString("Category");
-                                int availability = rs.getInt("availability");
-                                Timestamp created =rs.getTimestamp("created_at");
-                                LocalDateTime localDateTime = created.toLocalDateTime();
-                                
-	    			b = new Book(id, title, isbn, author, publisher, category, availability);
-	    			
-	    		}
-        }
-        catch(Exception e) {
-                        
-	    		e.printStackTrace();
-	    	}
-        return b;
-}
+//    public Book viewdata(int id){
+//        Book b = null;
+//        
+//        try{
+//           String sql = "select * from tbl_books where id ="+id+"";
+//                        PreparedStatement pst = this.conn.prepareStatement(sql);
+//                        ResultSet rs = pst.executeQuery();
+//	    		
+//	    		while(rs.next()) {
+//	    			int ids = rs.getInt("Id");
+//	    			String title = rs.getString("Title");
+//                                int isbn =rs.getInt("ISBN");
+//                                String author =rs.getString("Author");
+//                                String publisher =rs.getString("publisher");
+//                                String category = rs.getString("Category");
+//                                int availability = rs.getInt("availability");
+//                                Timestamp created =rs.getTimestamp("created_at");
+//                                LocalDateTime localDateTime = created.toLocalDateTime();
+//                                
+//	    			b = new Book(id, title, isbn, author, publisher, category, availability);
+//	    			
+//	    		}
+//        }
+//        catch(Exception e) {
+//                        
+//            e.printStackTrace();
+//	}
+//        return b;
+//    }
     
     /*public void updateBook(int id, String title, int isbn, String author, String publisher, String category, int availability) {
     	
