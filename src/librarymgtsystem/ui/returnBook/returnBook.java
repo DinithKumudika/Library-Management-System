@@ -123,7 +123,7 @@ public class returnBook extends javax.swing.JFrame {
 
         formAddMember.add(formHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 70));
 
-        cmbReturnYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2021", "2022", "2022" }));
+        cmbReturnYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2021", "2022", "2023" }));
         cmbReturnYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbReturnYearActionPerformed(evt);
@@ -163,11 +163,11 @@ public class returnBook extends javax.swing.JFrame {
         String returnedMonth = cmbReturnMonth.getSelectedItem().toString();
         String returnedDate = cmbReturnDate.getSelectedItem().toString();
         
-        String returnDate = returnedYear + "-" + returnedMonth + "-" + returnedDate;
+        String returnDay = returnedYear + "-" + returnedMonth + "-" + returnedDate;
          
         Book book = new Book();
         
-        book.setReturnBookDetails(bookId, memberId, returnDate);
+        book.setReturnBookDetails(bookId, memberId, returnDay);
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void tfBookIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfBookIdActionPerformed

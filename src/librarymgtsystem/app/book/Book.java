@@ -30,7 +30,6 @@ public class Book extends DBConnection{
     private String publisher;
     private String category;
     private int availability;
-    //private LocalDateTime created_at;
     private Connection conn = DBConnection.connect();
 
     
@@ -337,10 +336,11 @@ public class Book extends DBConnection{
         try {
             String sql = "INSERT INTO `tbl_books_issued` (`issued_date`,`return_date`,`book_ID`,`member_ID`) VALUES (?,?,?,?)";
             PreparedStatement pst = this.conn.prepareStatement(sql);
-            pst.setDate(1, Date.valueOf(issuedDate));
-            pst.setDate(2, Date.valueOf(returnDate));
+            pst.setString(1, issuedDate);
+            pst.setString(2, returnDate);
             pst.setInt(3, bookId);
             pst.setInt(4, memberId);
+            
             int rows = pst.executeUpdate();
             
             if(rows > 0){
@@ -350,7 +350,7 @@ public class Book extends DBConnection{
                 System.out.println("Book issue failed");
             }
             
-            String sql2 = "UPDATE `tbl_books` SET `Availability` = 0 WHERE `ID` = ?";
+            String sql2 = "UPDATE `tbl_books` SET `Availability	` = 0 WHERE `ID` = ?";
             PreparedStatement pst2 = this.conn.prepareStatement(sql2);
             pst2.setInt(1, bookId);
             int rows2 = pst2.executeUpdate();
@@ -370,7 +370,20 @@ public class Book extends DBConnection{
             PreparedStatement pst = this.conn.prepareStatement(sql);
             pst.setInt(1, bookId);
             pst.setInt(2, memberId);
-            pst.setDate(3, java.sql.Date.valueOf(returnedDate));
+            pst.setString(3, returnedDate);
+            int rows = pst.executeUpdate();
+            
+            if(rows > 0){
+                System.out.println("Book returned");
+            }
+            else{
+                System.out.println("Book return failed");
+            }
+            
+            String sql2 = "UPDATE `tbl_books` SET `Availability	` = 1 WHERE `ID` = ?";
+            PreparedStatement pst2 = this.conn.prepareStatement(sql2);
+            pst2.setInt(1, bookId);
+            int rows2 = pst2.executeUpdate();
         } 
         catch (SQLException e) {
             e.getMessage();
