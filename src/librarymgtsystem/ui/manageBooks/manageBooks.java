@@ -54,7 +54,7 @@ public class manageBooks extends javax.swing.JFrame {
         btnUpdateBook = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         sideBar = new javax.swing.JPanel();
-        btnAddBook1 = new javax.swing.JButton();
+        btnManageBooks = new javax.swing.JButton();
         btnIssueBook1 = new javax.swing.JButton();
         btnReturnBook1 = new javax.swing.JButton();
         btnDashboard1 = new javax.swing.JButton();
@@ -138,20 +138,20 @@ public class manageBooks extends javax.swing.JFrame {
         sideBar.setBackground(new java.awt.Color(153, 153, 153));
         sideBar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnAddBook1.setBackground(new java.awt.Color(153, 102, 0));
-        btnAddBook1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnAddBook1.setForeground(new java.awt.Color(0, 0, 0));
-        btnAddBook1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymgtsystem/assets/book (1).png"))); // NOI18N
-        btnAddBook1.setText("Manage Books");
-        btnAddBook1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnAddBook1.setMaximumSize(new java.awt.Dimension(181, 66));
-        btnAddBook1.setMinimumSize(new java.awt.Dimension(181, 66));
-        btnAddBook1.addActionListener(new java.awt.event.ActionListener() {
+        btnManageBooks.setBackground(new java.awt.Color(153, 102, 0));
+        btnManageBooks.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnManageBooks.setForeground(new java.awt.Color(0, 0, 0));
+        btnManageBooks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymgtsystem/assets/book (1).png"))); // NOI18N
+        btnManageBooks.setText("Manage Books");
+        btnManageBooks.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnManageBooks.setMaximumSize(new java.awt.Dimension(181, 66));
+        btnManageBooks.setMinimumSize(new java.awt.Dimension(181, 66));
+        btnManageBooks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddBook1ActionPerformed(evt);
+                btnManageBooksActionPerformed(evt);
             }
         });
-        sideBar.add(btnAddBook1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 230, 90));
+        sideBar.add(btnManageBooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 230, 90));
 
         btnIssueBook1.setBackground(new java.awt.Color(153, 102, 0));
         btnIssueBook1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -212,7 +212,7 @@ public class manageBooks extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public static void loadAllDataIntoTable(List<Book> list){
+     public static void loadAllDataIntoTable(List<Book> list){
         DefaultTableModel tbl =(DefaultTableModel) tblBooks.getModel();
         tbl.setRowCount(0);
 
@@ -233,7 +233,7 @@ public class manageBooks extends javax.swing.JFrame {
             v.add(book.getPublisher());
             v.add(book.getCategory());
             v.add(availability);
-            v.add(book.getCreated_at());
+           // v.add(book.getCreated_at());
             
             tbl.addRow(v);
             }
@@ -253,9 +253,12 @@ public class manageBooks extends javax.swing.JFrame {
         login.setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
-    private void btnAddBook1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBook1ActionPerformed
+    private void btnManageBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageBooksActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddBook1ActionPerformed
+        this.dispose();
+        JFrame manageBooks = new manageBooks();
+        manageBooks.setVisible(true);
+    }//GEN-LAST:event_btnManageBooksActionPerformed
 
     private void btnIssueBook1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIssueBook1ActionPerformed
         // TODO add your handling code here:
@@ -267,6 +270,9 @@ public class manageBooks extends javax.swing.JFrame {
 
     private void btnDashboard1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboard1ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        JFrame home = new homeLibrarian();
+        home.setVisible(true);
     }//GEN-LAST:event_btnDashboard1ActionPerformed
 
     private void btnDeleteBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteBookActionPerformed
@@ -284,7 +290,6 @@ public class manageBooks extends javax.swing.JFrame {
         Book book = new Book();
         book.deleteBook(id);
         loadTable();
-        
     }//GEN-LAST:event_btnDeleteBookActionPerformed
 
     private void btnAddBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBookActionPerformed
@@ -305,7 +310,8 @@ public class manageBooks extends javax.swing.JFrame {
             int id = (int)tblBooks.getValueAt(selectedRow, 0);
             
         }
-        int id = Integer.parseInt(this.tblBooks.getValueAt(selectedRow, 0).toString());
+        //int id = Integer.parseInt(this.tblBooks.getValueAt(selectedRow, 0).toString());
+        String id = this.tblBooks.getValueAt(selectedRow, 0).toString();
         String title = this.tblBooks.getValueAt(selectedRow, 1).toString();
         String isbn = this.tblBooks.getValueAt(selectedRow, 2).toString();
         String author = this.tblBooks.getValueAt(selectedRow, 3).toString();
@@ -315,17 +321,11 @@ public class manageBooks extends javax.swing.JFrame {
         
         JFrame updateBook = new UpdateBook();
         
-        JLabel bookId = UpdateBook.lblBookId;
-        bookId.setVisible(false);
+        JTextField bookId = UpdateBook.tfBookId;
+        bookId.setText(id);
         
-        JTextField bookTitle = UpdateBook.tfBookTitle;
+        JTextField bookTitle = UpdateBook.tfBookId;
         bookTitle.setText(title);
-        
-        JTextField bookisbn = UpdateBook.tfBookTitle;
-        bookTitle.setText(title);
-        
-        JTextField bookIsbn = UpdateBook.tfISBN;
-        bookIsbn.setText(isbn);
         
         JTextField bookAuthor= UpdateBook.tfAuthor;
         bookAuthor.setText(author);
@@ -335,6 +335,9 @@ public class manageBooks extends javax.swing.JFrame {
         
         JComboBox<String> bookCategory = UpdateBook.cmbCategory;
         bookCategory.setSelectedItem(category);
+        
+        JTextField bookIsbn = UpdateBook.tfISBN;
+        bookIsbn.setText(isbn);
         
         JComboBox<String> bookAvailability = UpdateBook.cmbAvailability;
         bookAvailability.setSelectedItem(availability);
@@ -404,12 +407,12 @@ public class manageBooks extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgImg;
     private javax.swing.JButton btnAddBook;
-    private javax.swing.JButton btnAddBook1;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDashboard1;
     private javax.swing.JButton btnDeleteBook;
     private javax.swing.JButton btnIssueBook1;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnManageBooks;
     private javax.swing.JButton btnReturnBook1;
     private javax.swing.JButton btnUpdateBook;
     private javax.swing.JScrollPane jScrollPane1;
