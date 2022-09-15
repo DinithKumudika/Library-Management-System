@@ -201,6 +201,97 @@ public class Book extends DBConnection {
                 LocalDateTime localDateTime = created.toLocalDateTime();
                 Book book1 = new Book(id, title, isbn, author, publisher, category, availability);
                 book.add(book1);
+	    		String sql = "select * from tbl_books";
+                        PreparedStatement pst = this.conn.prepareStatement(sql);
+                        ResultSet rs = pst.executeQuery();
+	    		
+	    		while(rs.next()) {
+	    			int id = rs.getInt("Id");
+	    			String title = rs.getString("Title");
+                                int isbn =rs.getInt("ISBN");
+                                String author =rs.getString("Author");
+                                String publisher =rs.getString("publisher");
+                                String category = rs.getString("Category");
+                                int availability = rs.getInt("availability");
+                               
+	    			Book book1 = new Book(id, title, isbn, author, publisher, category, availability);
+	    			book.add(book1);
+	    		}
+	    		
+	    	}
+	    	catch(Exception e) {
+                        
+	    		e.printStackTrace();
+	    	}	
+        return book;
+        }
+    
+//    public Book viewdata(int id){
+//        Book b = null;
+//        
+//        try{
+//           String sql = "select * from tbl_books where id ="+id+"";
+//                        PreparedStatement pst = this.conn.prepareStatement(sql);
+//                        ResultSet rs = pst.executeQuery();
+//	    		
+//	    		while(rs.next()) {
+//	    			int ids = rs.getInt("Id");
+//	    			String title = rs.getString("Title");
+//                                int isbn =rs.getInt("ISBN");
+//                                String author =rs.getString("Author");
+//                                String publisher =rs.getString("publisher");
+//                                String category = rs.getString("Category");
+//                                int availability = rs.getInt("availability");
+//                                Timestamp created =rs.getTimestamp("created_at");
+//                                LocalDateTime localDateTime = created.toLocalDateTime();
+//                                
+//	    			b = new Book(id, title, isbn, author, publisher, category, availability);
+//	    			
+//	    		}
+//        }
+//        catch(Exception e) {
+//                        
+//            e.printStackTrace();
+//	}
+//        return b;
+//    }
+    
+    /*public void updateBook(int id, String title, int isbn, String author, String publisher, String category, int availability) {
+    	
+    	try {
+    		String sql = "update tbl_books set Title='"+title+"', ISBN='"+isbn+"', Author='"+author+"', Publisher='"+publisher+"', Category='"+category+"', Availability='"+availability+"' where ID='"+id+"'";
+                //Statement stmt = this.conn.Statement(sql);
+    		Statement stmt = null;
+                
+    		stmt = conn.createStatement();
+    		int rs = stmt.executeUpdate(sql);
+    		
+    		if(rs > 0) {
+    			JOptionPane.showMessageDialog(null, "A book has been updated successfully");
+                        loadTable();
+    		}
+    		else {
+    			JOptionPane.showMessageDialog(null, "A book has not been updated successfully");
+            }	
+    	}
+    	catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	
+    }*/
+  /*  public void updateBook(Book book) {
+    	
+    	try {
+            String sql = "update tbl_books set Title='"+book.getTitle()+"', ISBN='"+book.getIsbn()+"', Author='"+book.getAuthor()+"', Publisher='"+book.getPublisher()+"', Category='"+book.getCategory()+"', Availability='"+book.getAvailability()+"' where ID='"+book.getId()+"'";
+            //Statement stmt = this.conn.Statement(sql);
+            Statement stmt = null;
+
+            stmt = conn.createStatement();
+            int rs = stmt.executeUpdate(sql);
+
+            if(rs > 0) {
+                    JOptionPane.showMessageDialog(null, "A book has been updated successfully");
+                    loadTable();
             }
 
         } catch (Exception e) {
