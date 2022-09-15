@@ -225,7 +225,7 @@ public class addBook extends javax.swing.JFrame {
             else{
                 av=0;
             }
-           Book book = new Book(0,title, Integer.parseInt(isbn), author, publisher, category, av, null);
+           Book book = new Book(0,title, Integer.parseInt(isbn), author, publisher, category, av);
        // Book book = new Book();
         
             if(!book.isValidBook()){

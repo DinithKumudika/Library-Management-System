@@ -21,8 +21,8 @@ public class UpdateBook extends javax.swing.JFrame {
      */
     public UpdateBook() {
         initComponents();
-        String id = lblBookId.getText();
-        String name = tfBookTitle.getText();
+        String id = tfBookId.getText();
+        String name = tfBookId.getText();
         String isbn = tfISBN.getText();
         String author = tfAuthor.getText();
         String publisher = tfPublisher.getText();
@@ -41,11 +41,10 @@ public class UpdateBook extends javax.swing.JFrame {
 
         formAddMember = new javax.swing.JPanel();
         lblCategory = new javax.swing.JLabel();
-        lblBookId = new javax.swing.JLabel();
         lblPublisher = new javax.swing.JLabel();
         btnClear = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
-        tfBookTitle = new javax.swing.JTextField();
+        tfBookId = new javax.swing.JTextField();
         tfPublisher = new javax.swing.JTextField();
         lblAuthor = new javax.swing.JLabel();
         tfAuthor = new javax.swing.JTextField();
@@ -57,6 +56,8 @@ public class UpdateBook extends javax.swing.JFrame {
         lblISBN1 = new javax.swing.JLabel();
         lblBookTitle1 = new javax.swing.JLabel();
         cmbCategory = new javax.swing.JComboBox<>();
+        lblBookTitle = new javax.swing.JLabel();
+        tfBookTitle = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -70,10 +71,6 @@ public class UpdateBook extends javax.swing.JFrame {
         lblCategory.setForeground(new java.awt.Color(153, 102, 0));
         lblCategory.setText("Category :");
         formAddMember.add(lblCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
-
-        lblBookId.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblBookId.setForeground(new java.awt.Color(153, 102, 0));
-        formAddMember.add(lblBookId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
         lblPublisher.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblPublisher.setForeground(new java.awt.Color(153, 102, 0));
@@ -102,14 +99,14 @@ public class UpdateBook extends javax.swing.JFrame {
         });
         formAddMember.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 550, 130, 40));
 
-        tfBookTitle.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        tfBookTitle.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 0)), javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        tfBookTitle.addActionListener(new java.awt.event.ActionListener() {
+        tfBookId.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        tfBookId.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 0)), javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfBookId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfBookTitleActionPerformed(evt);
+                tfBookIdActionPerformed(evt);
             }
         });
-        formAddMember.add(tfBookTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 280, 40));
+        formAddMember.add(tfBookId, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 280, 40));
 
         tfPublisher.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tfPublisher.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 0)), javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
@@ -173,12 +170,26 @@ public class UpdateBook extends javax.swing.JFrame {
 
         lblBookTitle1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblBookTitle1.setForeground(new java.awt.Color(153, 102, 0));
-        lblBookTitle1.setText("Book Title :");
-        formAddMember.add(lblBookTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
+        lblBookTitle1.setText("Book Id :");
+        formAddMember.add(lblBookTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
         cmbCategory.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cmbCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select category...", "Health & Lifestyle", "ART/architecture", "Technology", "Science fiction", "Adventure", "Romance", "Satire", "History", "Mathematics", "Business", "Travel", "Encyclopedia", "Biography", "Religion" }));
         formAddMember.add(cmbCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 280, 40));
+
+        lblBookTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblBookTitle.setForeground(new java.awt.Color(153, 102, 0));
+        lblBookTitle.setText("Book Title :");
+        formAddMember.add(lblBookTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
+
+        tfBookTitle.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        tfBookTitle.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 0)), javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfBookTitle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfBookTitleActionPerformed(evt);
+            }
+        });
+        formAddMember.add(tfBookTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 280, 40));
 
         getContentPane().add(formAddMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 720));
 
@@ -187,7 +198,7 @@ public class UpdateBook extends javax.swing.JFrame {
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         // TODO add your handling code here:
-        tfBookTitle.setText("");
+       tfBookId.setText("");
         tfISBN.setText("");
         tfAuthor.setText("");
         tfPublisher.setText("");
@@ -197,7 +208,7 @@ public class UpdateBook extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        String id = lblBookId.getText();
+        /* String id = lblBookId.getText();
         String title = tfBookTitle.getText();
         String isbn = tfISBN.getText();
         String author = tfAuthor.getText();
@@ -209,28 +220,67 @@ public class UpdateBook extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Book details required!", "Alert", JOptionPane.WARNING_MESSAGE);
         }
         else{
-           Book book = new Book(0,title, Integer.parseInt(isbn), author, publisher, category, Integer.parseInt(availability), null);
+            int av;
+            if(availability=="Available"){
+                av=1;
+            }
+            else{
+                av=0;
+            }
+           Book book = new Book(Integer.parseInt(id), title, Integer.parseInt(isbn), author, publisher, category, av);
         
             if(!book.isValidBook()){
             JOptionPane.showMessageDialog(null, "Book already exists!" ,"Alert", JOptionPane.WARNING_MESSAGE);
             }
             else{
-                //book.updateBook(book);
-                book.updateBook(0, title, Integer.parseInt(isbn), author, publisher, category, Integer.parseInt(availability));
-                manageBooks mBooks = new manageBooks();
+                book.updateBook(book);
+               // book.updateBook(0, title, Integer.parseInt(isbn), author, publisher, category, av);
+                ManageBooks mBooks = new ManageBooks();
                 mBooks.loadTable();
                // JOptionPane.showMessageDialog(null, "Book updated successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
             } 
+        }
+        */
+        String id = tfBookId.getText();
+        String title = tfBookTitle.getText();
+        String isbn = tfISBN.getText();
+        String author = tfAuthor.getText();
+        String publisher = tfPublisher.getText();
+        String category = cmbCategory.getSelectedItem().toString();
+        String availability = cmbAvailability.getSelectedItem().toString();
+        
+        int av;
+            if(availability=="Available"){
+                av=1;
+            }
+            else{
+                av=0;
+            }
+        
+        if(title.equals("") || isbn.equals("") || author.equals("") || publisher.equals("")|| category.equals("")|| availability.equals("")){
+            JOptionPane.showMessageDialog(null, "Book details are required!", "Alert", JOptionPane.WARNING_MESSAGE);
         } 
+        else{
+            Book book = new Book(Integer.parseInt(id), title, Integer.parseInt(isbn), author, publisher, category, av);
+     //     String memeberId = lblIdNo.getText();
+            book.update(Integer.parseInt(id));
+            JOptionPane.showMessageDialog(null, "Book updated!", "Info", JOptionPane.INFORMATION_MESSAGE);
+            manageBooks mBooks = new manageBooks();
+            mBooks.loadTable();
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void tfBookTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfBookTitleActionPerformed
+    private void tfBookIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfBookIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfBookTitleActionPerformed
+    }//GEN-LAST:event_tfBookIdActionPerformed
 
     private void cmbAvailabilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAvailabilityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbAvailabilityActionPerformed
+
+    private void tfBookTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfBookTitleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfBookTitleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,13 +329,14 @@ public class UpdateBook extends javax.swing.JFrame {
     private javax.swing.JPanel formHeader;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblAuthor;
-    public static javax.swing.JLabel lblBookId;
+    private javax.swing.JLabel lblBookTitle;
     private javax.swing.JLabel lblBookTitle1;
     private javax.swing.JLabel lblCategory;
     private javax.swing.JLabel lblISBN;
     private javax.swing.JLabel lblISBN1;
     private javax.swing.JLabel lblPublisher;
     public static javax.swing.JTextField tfAuthor;
+    public static javax.swing.JTextField tfBookId;
     public static javax.swing.JTextField tfBookTitle;
     public static javax.swing.JTextField tfISBN;
     public static javax.swing.JTextField tfPublisher;

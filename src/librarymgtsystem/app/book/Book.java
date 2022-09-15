@@ -31,11 +31,11 @@ public class Book extends DBConnection{
     private String publisher;
     private String category;
     private int availability;
-    private LocalDateTime created_at;
+    //private LocalDateTime created_at;
     private Connection conn = DBConnection.connect();
 
     
-    public Book(int id, String title, int isbn, String author, String publisher, String category, int availability, LocalDateTime created_at) {
+    public Book(int id, String title, int isbn, String author, String publisher, String category, int availability) {
         this.id = id;
         this.title = title;
         this.isbn = isbn;
@@ -43,7 +43,6 @@ public class Book extends DBConnection{
         this.publisher = publisher;
         this.category = category;
         this.availability = availability;
-        this.created_at = created_at;
     }
 
     public Book() {
@@ -104,14 +103,6 @@ public class Book extends DBConnection{
 
     public void setAvailability(int availability) {
         this.availability = availability;
-    }
-
-    public LocalDateTime getCreated_at() {
-        return created_at;
-    }
-
-    public void setCreated_at(LocalDateTime created_at) {
-        this.created_at = created_at;
     }
 
     public Connection getConn() {
@@ -204,7 +195,7 @@ public class Book extends DBConnection{
                                 
                                 Timestamp created =rs.getTimestamp("created_at");
                                 LocalDateTime localDateTime = created.toLocalDateTime();
-	    			Book book1 = new Book(id, title, isbn, author, publisher, category, availability, localDateTime);
+	    			Book book1 = new Book(id, title, isbn, author, publisher, category, availability);
 	    			book.add(book1);
 	    		}
 	    		
@@ -235,7 +226,7 @@ public class Book extends DBConnection{
                                 Timestamp created =rs.getTimestamp("created_at");
                                 LocalDateTime localDateTime = created.toLocalDateTime();
                                 
-	    			b = new Book(id, title, isbn, author, publisher, category, availability, localDateTime);
+	    			b = new Book(id, title, isbn, author, publisher, category, availability);
 	    			
 	    		}
         }
@@ -246,7 +237,7 @@ public class Book extends DBConnection{
         return b;
 }
     
-    public void updateBook(int id, String title, int isbn, String author, String publisher, String category, int availability) {
+    /*public void updateBook(int id, String title, int isbn, String author, String publisher, String category, int availability) {
     	
     	try {
     		String sql = "update tbl_books set Title='"+title+"', ISBN='"+isbn+"', Author='"+author+"', Publisher='"+publisher+"', Category='"+category+"', Availability='"+availability+"' where ID='"+id+"'";
@@ -262,19 +253,58 @@ public class Book extends DBConnection{
     		}
     		else {
     			JOptionPane.showMessageDialog(null, "A book has not been updated successfully");
-            }
-    		
-                
-             
-
-    		
+            }	
     	}
     	catch(Exception e) {
     		e.printStackTrace();
     	}
     	
+    }*/
+  /*  public void updateBook(Book book) {
+    	
+    	try {
+            String sql = "update tbl_books set Title='"+book.getTitle()+"', ISBN='"+book.getIsbn()+"', Author='"+book.getAuthor()+"', Publisher='"+book.getPublisher()+"', Category='"+book.getCategory()+"', Availability='"+book.getAvailability()+"' where ID='"+book.getId()+"'";
+            //Statement stmt = this.conn.Statement(sql);
+            Statement stmt = null;
+
+            stmt = conn.createStatement();
+            int rs = stmt.executeUpdate(sql);
+
+            if(rs > 0) {
+                    JOptionPane.showMessageDialog(null, "A book has been updated successfully");
+                    loadTable();
+            }
+            else {
+                    JOptionPane.showMessageDialog(null, "A book has not been updated successfully");
+            }	
+    	}
+    	catch(Exception e) {
+            e.printStackTrace();
+    	}
+    	
     }
- 
+ */
+    public void update(int id){
+        try{
+            String sql = "UPDATE `tbl_books` SET `Title` = ?, `ISBN` = ?, `Author` = ?, `Publisher` = ?, `Category` = ?, `Availability` = ? WHERE ID = ?";
+            PreparedStatement pst = this.conn.prepareStatement(sql);
+            pst.setString(1, this.title);
+            pst.setInt(2, this.isbn);
+            pst.setString(3, this.author);
+            pst.setString(4, this.publisher);
+            pst.setString(5, this.category);
+            pst.setString(6, this.publisher);
+            pst.setInt(5,this.availability);
+            
+            int resultRows = pst.executeUpdate();
+            
+            System.out.println(resultRows + " rows updated");
+            
+        }
+        catch(SQLException e){
+            e.getMessage();
+        }
+    }
     public void deleteBook(int id){
         try{
             String sql = "delete from tbl_books where ID ="+id+"";
