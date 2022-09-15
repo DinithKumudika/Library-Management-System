@@ -28,11 +28,6 @@ public class returnBook extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        sideBar = new javax.swing.JPanel();
-        btnReturnBook = new javax.swing.JButton();
-        btnDashboard = new javax.swing.JButton();
-        btnAddMember = new javax.swing.JButton();
-        btnAddBook = new javax.swing.JButton();
         formAddMember = new javax.swing.JPanel();
         lblPhone = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
@@ -46,65 +41,10 @@ public class returnBook extends javax.swing.JFrame {
         cmbReturnYear = new javax.swing.JComboBox<>();
         cmbReturnDate = new javax.swing.JComboBox<>();
         cmbReturnMonth = new javax.swing.JComboBox<>();
-        btnLogout = new javax.swing.JButton();
         bgImg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        sideBar.setBackground(new java.awt.Color(153, 153, 153));
-        sideBar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnReturnBook.setBackground(new java.awt.Color(153, 102, 0));
-        btnReturnBook.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnReturnBook.setForeground(new java.awt.Color(0, 0, 0));
-        btnReturnBook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymgtsystem/assets/return.png"))); // NOI18N
-        btnReturnBook.setText("Book Return");
-        btnReturnBook.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnReturnBook.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReturnBookActionPerformed(evt);
-            }
-        });
-        sideBar.add(btnReturnBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 230, 90));
-
-        btnDashboard.setBackground(new java.awt.Color(153, 102, 0));
-        btnDashboard.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnDashboard.setForeground(new java.awt.Color(0, 0, 0));
-        btnDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymgtsystem/assets/dashboard.png"))); // NOI18N
-        btnDashboard.setText("Dashboard");
-        btnDashboard.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnDashboard.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDashboardActionPerformed(evt);
-            }
-        });
-        sideBar.add(btnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 230, 90));
-
-        btnAddMember.setBackground(new java.awt.Color(153, 102, 0));
-        btnAddMember.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnAddMember.setForeground(new java.awt.Color(0, 0, 0));
-        btnAddMember.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymgtsystem/assets/add-user (1).png"))); // NOI18N
-        btnAddMember.setText("Add Member");
-        btnAddMember.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        sideBar.add(btnAddMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 230, 90));
-
-        btnAddBook.setBackground(new java.awt.Color(153, 102, 0));
-        btnAddBook.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnAddBook.setForeground(new java.awt.Color(0, 0, 0));
-        btnAddBook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymgtsystem/assets/book (1).png"))); // NOI18N
-        btnAddBook.setText("Add Book");
-        btnAddBook.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnAddBook.setMaximumSize(new java.awt.Dimension(181, 66));
-        btnAddBook.setMinimumSize(new java.awt.Dimension(181, 66));
-        btnAddBook.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddBookActionPerformed(evt);
-            }
-        });
-        sideBar.add(btnAddBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 230, 90));
-
-        getContentPane().add(sideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 780));
 
         formAddMember.setBackground(new java.awt.Color(204, 204, 204));
         formAddMember.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -202,37 +142,14 @@ public class returnBook extends javax.swing.JFrame {
         cmbReturnMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         formAddMember.add(cmbReturnMonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 80, 40));
 
-        getContentPane().add(formAddMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 570, 720));
-
-        btnLogout.setBackground(new java.awt.Color(0, 204, 0));
-        btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(0, 0, 0));
-        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymgtsystem/assets/log-out.png"))); // NOI18N
-        btnLogout.setText("Logout");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 10, 150, 50));
+        getContentPane().add(formAddMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 570, 720));
 
         bgImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymgtsystem/assets/home_bg.jpg"))); // NOI18N
-        getContentPane().add(bgImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1310, 780));
+        getContentPane().add(bgImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 780));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnReturnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnBookActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnReturnBookActionPerformed
-
-    private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDashboardActionPerformed
-
-    private void btnAddBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBookActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddBookActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         // TODO add your handling code here:
@@ -260,10 +177,6 @@ public class returnBook extends javax.swing.JFrame {
     private void cmbReturnYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbReturnYearActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbReturnYearActionPerformed
-
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void cmbReturnDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbReturnDateActionPerformed
         // TODO add your handling code here:
@@ -306,13 +219,8 @@ public class returnBook extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgImg;
-    private javax.swing.JButton btnAddBook;
-    private javax.swing.JButton btnAddMember;
     private javax.swing.JButton btnClear;
-    private javax.swing.JButton btnDashboard;
-    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnReturn;
-    private javax.swing.JButton btnReturnBook;
     private javax.swing.JComboBox<String> cmbReturnDate;
     private javax.swing.JComboBox<String> cmbReturnMonth;
     private javax.swing.JComboBox<String> cmbReturnYear;
@@ -322,7 +230,6 @@ public class returnBook extends javax.swing.JFrame {
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPhone;
-    private javax.swing.JPanel sideBar;
     private javax.swing.JTextField tfBookId;
     private javax.swing.JTextField tfMemberId;
     // End of variables declaration//GEN-END:variables

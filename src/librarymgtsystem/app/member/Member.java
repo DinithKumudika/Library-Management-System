@@ -7,6 +7,7 @@ package librarymgtsystem.app.member;
 import java.sql.*;
 import java.util.*;
 import librarymgtsystem.database.DBConnection;
+import librarymgtsystem.ui.manageMembers.manageMembers;
 
 /**
  *
@@ -148,6 +149,7 @@ public class Member extends DBConnection{
             
             if(resultRows > 0){
                 System.out.println("Member created");
+                manageMembers.loadTable();
             }
             else{
                 System.out.println("Member creation failed");
@@ -167,6 +169,7 @@ public class Member extends DBConnection{
             int resultRows = pst.executeUpdate();
             if (resultRows>0) {
                 System.out.println("Member deleted");
+                manageMembers.loadTable();
             }
             else{
                 System.out.println("Member deletion failed");
@@ -192,6 +195,7 @@ public class Member extends DBConnection{
             
             if(resultRows>0){
                 System.out.println("Member updated");
+                manageMembers.loadTable();
             }
             else{
                 System.out.println("Member update failed");

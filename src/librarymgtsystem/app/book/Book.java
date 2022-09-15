@@ -315,8 +315,9 @@ public class Book extends DBConnection{
     }
     public void deleteBook(int id){
         try{
-            String sql = "delete from tbl_books where ID ="+id+"";
+            String sql = "delete from `tbl_books` where ID = ?";
             PreparedStatement pst = this.conn.prepareStatement(sql);
+            pst.setInt(1, id);
             int r = pst.executeUpdate(sql);
 
             if (r > 0) {
@@ -334,12 +335,25 @@ public class Book extends DBConnection{
     
     private void issueBook(int bookId, int memberId, String issuedDate, String returnDate){
         try {
-            String sql = "INSERT INTO `tbl_books_issued` (`issued_Date`,`return_Date`,`book_ID`,`member_ID`) VALUES (?,?,?,?)";
+            String sql = "INSERT INTO `tbl_books_issued` (`issued_date`,`return_date`,`book_ID`,`member_ID`) VALUES (?,?,?,?)";
             PreparedStatement pst = this.conn.prepareStatement(sql);
-            pst.setDate(1, java.sql.Date.valueOf(issuedDate));
-            pst.setDate(2, java.sql.Date.valueOf(returnDate));
+            pst.setDate(1, Date.valueOf(issuedDate));
+            pst.setDate(2, Date.valueOf(returnDate));
             pst.setInt(3, bookId);
             pst.setInt(4, memberId);
+            int rows = pst.executeUpdate();
+            
+            if(rows > 0){
+                System.out.println("Book issued");
+            }
+            else{
+                System.out.println("Book issue failed");
+            }
+            
+            String sql2 = "UPDATE `tbl_books` SET `Availability` = 0 WHERE `ID` = ?";
+            PreparedStatement pst2 = this.conn.prepareStatement(sql2);
+            pst2.setInt(1, bookId);
+            int rows2 = pst2.executeUpdate();
         } 
         catch (SQLException e) {
             e.getMessage();

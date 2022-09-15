@@ -7,8 +7,11 @@ package librarymgtsystem.ui.home.Librarian;
 import java.awt.Color;
 import javax.swing.JFrame;
 import librarymgtsystem.ui.addBook.addBook;
+import librarymgtsystem.ui.issueBook.issueBook;
+import librarymgtsystem.ui.login.loginForm;
 import librarymgtsystem.ui.manageBooks.manageBooks;
 import librarymgtsystem.ui.manageMembers.manageMembers;
+import librarymgtsystem.ui.returnBook.returnBook;
 
 /**
  *
@@ -147,10 +150,16 @@ public class homeLibrarian extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
+        JFrame login = new loginForm();
+        login.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnReturnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnBookActionPerformed
         // TODO add your handling code here:
+        JFrame returnBook = new returnBook();
+        returnBook.setVisible(true);
+        returnBook.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btnReturnBookActionPerformed
 
     private void btnManageBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageBooksActionPerformed
@@ -166,6 +175,9 @@ public class homeLibrarian extends javax.swing.JFrame {
 
     private void btnIssueBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIssueBookActionPerformed
         // TODO add your handling code here:
+        JFrame issueBook = new issueBook();
+        issueBook.setVisible(true);
+        issueBook.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btnIssueBookActionPerformed
 
     private void btnManageMembersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageMembersActionPerformed
