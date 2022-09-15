@@ -4,6 +4,7 @@
  */
 package librarymgtsystem.ui.manageBooks;
 
+import librarymgtsystem.ui.manageMembers.*;
 import java.sql.*;
 import java.util.List;
 import java.util.Vector;
@@ -309,6 +310,7 @@ public class manageBooks extends javax.swing.JFrame {
             int id = (int)tblBooks.getValueAt(selectedRow, 0);
             
         }
+        //int id = Integer.parseInt(this.tblBooks.getValueAt(selectedRow, 0).toString());
         String id = this.tblBooks.getValueAt(selectedRow, 0).toString();
         String title = this.tblBooks.getValueAt(selectedRow, 1).toString();
         String isbn = this.tblBooks.getValueAt(selectedRow, 2).toString();

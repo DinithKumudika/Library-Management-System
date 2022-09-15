@@ -7,7 +7,6 @@ package librarymgtsystem.ui.home.Admin;
 import java.awt.Color;
 import javax.swing.JFrame;
 import librarymgtsystem.ui.addBook.addBook;
-import librarymgtsystem.ui.login.loginForm;
 import librarymgtsystem.ui.manageBooks.manageBooks;
 import librarymgtsystem.ui.manageLibrarians.manageLibrarians;
 /**
@@ -36,8 +35,11 @@ public class homeAdmin extends javax.swing.JFrame {
         pnlAdmin = new javax.swing.JPanel();
         userIco = new javax.swing.JLabel();
         lblUsername = new javax.swing.JLabel();
+        btnReturnBook = new javax.swing.JButton();
         btnManageLibrarians = new javax.swing.JButton();
+        btnManageBooks = new javax.swing.JButton();
         btnDashboard = new javax.swing.JButton();
+        btnIssueBook = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         bgImg = new javax.swing.JLabel();
 
@@ -54,6 +56,18 @@ public class homeAdmin extends javax.swing.JFrame {
         lblUsername.setText("Welcome");
         pnlAdmin.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
+        btnReturnBook.setBackground(new java.awt.Color(153, 102, 0));
+        btnReturnBook.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnReturnBook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymgtsystem/assets/return.png"))); // NOI18N
+        btnReturnBook.setText("Book Return");
+        btnReturnBook.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnReturnBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnBookActionPerformed(evt);
+            }
+        });
+        pnlAdmin.add(btnReturnBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, 230, 90));
+
         btnManageLibrarians.setBackground(new java.awt.Color(153, 102, 0));
         btnManageLibrarians.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnManageLibrarians.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymgtsystem/assets/add-user (1).png"))); // NOI18N
@@ -64,7 +78,21 @@ public class homeAdmin extends javax.swing.JFrame {
                 btnManageLibrariansActionPerformed(evt);
             }
         });
-        pnlAdmin.add(btnManageLibrarians, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 230, 90));
+        pnlAdmin.add(btnManageLibrarians, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 230, 90));
+
+        btnManageBooks.setBackground(new java.awt.Color(153, 102, 0));
+        btnManageBooks.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnManageBooks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymgtsystem/assets/book (1).png"))); // NOI18N
+        btnManageBooks.setText("Manage Books");
+        btnManageBooks.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnManageBooks.setMaximumSize(new java.awt.Dimension(181, 66));
+        btnManageBooks.setMinimumSize(new java.awt.Dimension(181, 66));
+        btnManageBooks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageBooksActionPerformed(evt);
+            }
+        });
+        pnlAdmin.add(btnManageBooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 230, 90));
 
         btnDashboard.setBackground(new java.awt.Color(153, 102, 0));
         btnDashboard.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -76,12 +104,21 @@ public class homeAdmin extends javax.swing.JFrame {
                 btnDashboardActionPerformed(evt);
             }
         });
-        pnlAdmin.add(btnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 230, 90));
+        pnlAdmin.add(btnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 530, 230, 90));
 
-        getContentPane().add(pnlAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 770, 560));
+        btnIssueBook.setBackground(new java.awt.Color(153, 102, 0));
+        btnIssueBook.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnIssueBook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymgtsystem/assets/book (2).png"))); // NOI18N
+        btnIssueBook.setText("Book Issue");
+        btnIssueBook.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnIssueBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIssueBookActionPerformed(evt);
+            }
+        });
+        pnlAdmin.add(btnIssueBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 230, 90));
 
         getContentPane().add(pnlAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 770, 690));
-
 
         btnLogout.setBackground(new java.awt.Color(0, 204, 0));
         btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -101,6 +138,10 @@ public class homeAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnReturnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnBookActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnReturnBookActionPerformed
+
     private void btnManageLibrariansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageLibrariansActionPerformed
         // TODO add your handling code here:
         JFrame manageLibrarians = new manageLibrarians();
@@ -108,18 +149,23 @@ public class homeAdmin extends javax.swing.JFrame {
         manageLibrarians.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btnManageLibrariansActionPerformed
 
+    private void btnManageBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageBooksActionPerformed
+        // TODO add your handling code here:
+        JFrame manageBooks = new manageBooks();
+        manageBooks.setVisible(true);
+        manageBooks.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_btnManageBooksActionPerformed
+
     private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-        JFrame home = new homeAdmin();
-        home.setVisible(true);
     }//GEN-LAST:event_btnDashboardActionPerformed
+
+    private void btnIssueBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIssueBookActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIssueBookActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-         this.dispose();
-        JFrame login = new loginForm();
-        login.setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
@@ -161,8 +207,11 @@ public class homeAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgImg;
     private javax.swing.JButton btnDashboard;
+    private javax.swing.JButton btnIssueBook;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnManageBooks;
     private javax.swing.JButton btnManageLibrarians;
+    private javax.swing.JButton btnReturnBook;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JPanel pnlAdmin;
     private javax.swing.JLabel userIco;
