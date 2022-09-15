@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import librarymgtsystem.database.DBConnection;
-import librarymgtsystem.ui.addLibrarian.AddLibrarian;
+import librarymgtsystem.ui.addLibrarian.addLibrarian;
 import librarymgtsystem.ui.home.Admin.homeAdmin;
 import librarymgtsystem.ui.login.loginForm;
 import librarymgtsystem.ui.updateLibrarian.UpdateLibrarian;
@@ -69,18 +69,8 @@ public class manageLibrarians extends javax.swing.JFrame {
 
         pnlAdmin = new javax.swing.JPanel();
         userIco = new javax.swing.JLabel();
-        lblUser = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblLibrarian = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        lblID = new javax.swing.JLabel();
-        tfID = new javax.swing.JTextField();
-        lblFirstName = new javax.swing.JLabel();
-        tfFirstName = new javax.swing.JTextField();
-        lblLastName = new javax.swing.JLabel();
-        tfLastName = new javax.swing.JTextField();
-        tfUsername = new javax.swing.JTextField();
-        lblusername = new javax.swing.JLabel();
         btnUpdateLibrarian = new javax.swing.JButton();
         btnAddLibrarian = new javax.swing.JButton();
         btnDeleteLibrarian = new javax.swing.JButton();
@@ -97,11 +87,6 @@ public class manageLibrarians extends javax.swing.JFrame {
         userIco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymgtsystem/assets/user.png"))); // NOI18N
         pnlAdmin.add(userIco, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 50));
 
-        lblUser.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblUser.setForeground(new java.awt.Color(255, 255, 255));
-        lblUser.setText("Welcome back, Dinith");
-        pnlAdmin.add(lblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
-
         tblLibrarian.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tblLibrarian.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -117,44 +102,7 @@ public class manageLibrarians extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblLibrarian);
 
-        pnlAdmin.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 40, 530, 600));
-
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblID.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblID.setForeground(new java.awt.Color(153, 102, 0));
-        lblID.setText("Librarian ID :");
-        jPanel1.add(lblID, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
-
-        tfID.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 0)), javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        jPanel1.add(tfID, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 220, 40));
-
-        lblFirstName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblFirstName.setForeground(new java.awt.Color(153, 102, 0));
-        lblFirstName.setText("First Name :");
-        jPanel1.add(lblFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
-
-        tfFirstName.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 0)), javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        jPanel1.add(tfFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 220, 40));
-
-        lblLastName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblLastName.setForeground(new java.awt.Color(153, 102, 0));
-        lblLastName.setText("Last Name :");
-        jPanel1.add(lblLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
-
-        tfLastName.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 0)), javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        jPanel1.add(tfLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 220, 40));
-
-        tfUsername.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 0)), javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        jPanel1.add(tfUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 220, 40));
-
-        lblusername.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblusername.setForeground(new java.awt.Color(153, 102, 0));
-        lblusername.setText("Username :");
-        jPanel1.add(lblusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
-
-        pnlAdmin.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 470, 460));
+        pnlAdmin.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 800, 610));
 
         btnUpdateLibrarian.setBackground(new java.awt.Color(0, 102, 255));
         btnUpdateLibrarian.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -164,7 +112,7 @@ public class manageLibrarians extends javax.swing.JFrame {
                 btnUpdateLibrarianActionPerformed(evt);
             }
         });
-        pnlAdmin.add(btnUpdateLibrarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 570, 110, 40));
+        pnlAdmin.add(btnUpdateLibrarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 120, 40));
 
         btnAddLibrarian.setBackground(new java.awt.Color(51, 204, 0));
         btnAddLibrarian.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -174,12 +122,12 @@ public class manageLibrarians extends javax.swing.JFrame {
                 btnAddLibrarianActionPerformed(evt);
             }
         });
-        pnlAdmin.add(btnAddLibrarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, 120, 40));
+        pnlAdmin.add(btnAddLibrarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 120, 40));
 
         btnDeleteLibrarian.setBackground(new java.awt.Color(204, 0, 0));
         btnDeleteLibrarian.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnDeleteLibrarian.setText("Delete");
-        pnlAdmin.add(btnDeleteLibrarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 570, 110, 40));
+        pnlAdmin.add(btnDeleteLibrarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 120, 40));
 
         getContentPane().add(pnlAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 1180, 670));
 
@@ -226,7 +174,7 @@ public class manageLibrarians extends javax.swing.JFrame {
 
     private void btnAddLibrarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddLibrarianActionPerformed
         // TODO add your handling code here:
-        JFrame addLibrarian = new AddLibrarian();
+        JFrame addLibrarian = new addLibrarian();
         addLibrarian.setVisible(true);
         addLibrarian.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btnAddLibrarianActionPerformed
@@ -309,19 +257,9 @@ public class manageLibrarians extends javax.swing.JFrame {
     private javax.swing.JButton btnDeleteLibrarian;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnUpdateLibrarian;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblFirstName;
-    private javax.swing.JLabel lblID;
-    private javax.swing.JLabel lblLastName;
-    private javax.swing.JLabel lblUser;
-    private javax.swing.JLabel lblusername;
     private javax.swing.JPanel pnlAdmin;
     private javax.swing.JTable tblLibrarian;
-    private javax.swing.JTextField tfFirstName;
-    private javax.swing.JTextField tfID;
-    private javax.swing.JTextField tfLastName;
-    private javax.swing.JTextField tfUsername;
     private javax.swing.JLabel userIco;
     // End of variables declaration//GEN-END:variables
 }
