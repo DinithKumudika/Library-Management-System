@@ -205,38 +205,33 @@ public class addBook extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        
+
         String title = tfBookTitle.getText();
         String isbn = tfISBN.getText();
         String author = tfAuthor.getText();
         String publisher = tfPublisher.getText();
         String category = cmbCategory.getSelectedItem().toString();
         String availability = cmbAvailability.getSelectedItem().toString();
-        
-        
-        if(title.equals("") || isbn.equals("") || author.equals("") || publisher.equals("") || category.equals("Select category...")){
+
+        if (title.equals("") || isbn.equals("") || author.equals("") || publisher.equals("") || category.equals("Select category...")) {
             JOptionPane.showMessageDialog(null, "Book details required!", "Alert", JOptionPane.WARNING_MESSAGE);
-        }
-        else{
+        } else {
             int av;
-            if(availability== "Available"){
+            if (availability == "Available") {
                 av = 1;
+            } else {
+                av = 0;
             }
-            else{
-                av=0;
-            }
-           Book book = new Book(0,title, Integer.parseInt(isbn), author, publisher, category, av);
-       // Book book = new Book();
-        
-            if(!book.isValidBook()){
-            JOptionPane.showMessageDialog(null, "Book already exists!" ,"Alert", JOptionPane.WARNING_MESSAGE);
-            }
-            else{
+            Book book = new Book(0, title, Integer.parseInt(isbn), author, publisher, category, av);
+
+            if (!book.isValidBook()) {
+                JOptionPane.showMessageDialog(null, "Book already exists!", "Alert", JOptionPane.WARNING_MESSAGE);
+            } else {
                 book.addBook();
                 JOptionPane.showMessageDialog(null, "Book added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
                 loadTable();
-            } 
-        } 
+            }
+        }
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void tfBookTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfBookTitleActionPerformed
