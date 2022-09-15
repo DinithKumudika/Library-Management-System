@@ -12,12 +12,12 @@ import librarymgtsystem.app.member.Member;
  *
  * @author Dinith
  */
-public class AddMember extends javax.swing.JFrame {
+public class addMember extends javax.swing.JFrame {
 
     /**
      * Creates new form addMember
      */
-    public AddMember() {
+    public addMember() {
         initComponents();
     }
 
@@ -216,7 +216,7 @@ public class AddMember extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddMember().setVisible(true);
+                new addMember().setVisible(true);
             }
         });
     }

@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import librarymgtsystem.app.member.Member;
 import librarymgtsystem.database.DBConnection;
-import librarymgtsystem.ui.addMember.AddMember;
+import librarymgtsystem.ui.addMember.addMember;
 import librarymgtsystem.ui.home.Librarian.homeLibrarian;
 import librarymgtsystem.ui.login.loginForm;
 import librarymgtsystem.ui.updateMember.updateMember;
@@ -255,7 +255,7 @@ public class manageMembers extends javax.swing.JFrame {
 
     private void btnAddMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMemberActionPerformed
         // TODO add your handling code here:
-        JFrame addMember = new AddMember();
+        JFrame addMember = new addMember();
         addMember.setVisible(true);
         addMember.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btnAddMemberActionPerformed
