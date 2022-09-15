@@ -6,19 +6,19 @@ package librarymgtsystem.app.member;
 
 import java.sql.*;
 import java.util.*;
-import javax.swing.text.html.parser.TagElement;
 import librarymgtsystem.database.DBConnection;
+import librarymgtsystem.ui.manageMembers.manageMembers;
 
 /**
  *
  * @author Dinith
  */
 public class Member extends DBConnection{
+    private int id;
     private String name;
     private int age;
     private String address;
     private String phoneNo;
-    private int librarianID;
     private Connection conn = DBConnection.connect();
     
     public Member (String name, int age, String address, String phoneNo){
@@ -28,7 +28,52 @@ public class Member extends DBConnection{
         this.phoneNo = phoneNo;
     }
     
+    public Member (int id,String name, int age, String address, String phoneNo){
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.address = address;
+        this.phoneNo = phoneNo;
+    }
+    
     public Member(){};
+    
+    public int getId(){
+       return  this.id;
+    }
+    
+    public void setId(int id){
+        this.id = id;
+    }
+    
+    public String getName(){
+        return  this.name;
+    }
+    
+    public void setName(String name){
+        this.name = name;
+    }
+    
+    public int getAge(){
+        return this.age;
+    }
+    
+    public void setAddress(String address){
+        this.address = address;
+    }
+    
+    public String getAddress(){
+        return this.address;
+    }
+    
+    public void setPhoneNo(String phoneNo){
+       this.phoneNo = phoneNo;
+    }
+    
+    public String getPhoneNo(){
+        return this.phoneNo;
+    }
+    
     
     private boolean checkMemberExist(){
         
@@ -64,6 +109,33 @@ public class Member extends DBConnection{
         }
     }
     
+        public List<Member> viewAllMembers(){
+            ArrayList<Member> member = new ArrayList<>();
+            try {
+	    		String sql = "select * from `tbl_member`";
+                        PreparedStatement pst = this.conn.prepareStatement(sql);
+                        ResultSet rs = pst.executeQuery();
+	    		
+	    		while(rs.next()) {
+	    			int id = rs.getInt("Id");
+	    			String name = rs.getString("name");
+                                int age =rs.getInt("age");
+                                String address =rs.getString("address");
+                                String phoneNo =rs.getString("phone no");
+                                
+	    			Member member1 = new Member(id, name, age, address, phoneNo);
+	    			member.add(member1);
+	    		}
+	    		
+	    	}
+	    	catch(Exception e) {
+                        
+	    		e.printStackTrace();
+	    	}	
+            return member;
+        }
+      
+    
     private void create(){
         try {
             String sql = "INSERT INTO `tbl_member`(`name`, `age`, `address`, `phone no`) VALUES (?,?,?,?)";
@@ -77,6 +149,7 @@ public class Member extends DBConnection{
             
             if(resultRows > 0){
                 System.out.println("Member created");
+                manageMembers.loadTable();
             }
             else{
                 System.out.println("Member creation failed");
@@ -96,6 +169,7 @@ public class Member extends DBConnection{
             int resultRows = pst.executeUpdate();
             if (resultRows>0) {
                 System.out.println("Member deleted");
+                manageMembers.loadTable();
             }
             else{
                 System.out.println("Member deletion failed");
@@ -121,6 +195,7 @@ public class Member extends DBConnection{
             
             if(resultRows>0){
                 System.out.println("Member updated");
+                manageMembers.loadTable();
             }
             else{
                 System.out.println("Member update failed");
