@@ -199,7 +199,7 @@ public class returnBook extends javax.swing.JFrame {
         });
         formAddMember.add(cmbReturnDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 80, 40));
 
-        cmbReturnMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec" }));
+        cmbReturnMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         formAddMember.add(cmbReturnMonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 80, 40));
 
         getContentPane().add(formAddMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 570, 720));

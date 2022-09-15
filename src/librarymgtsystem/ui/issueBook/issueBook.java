@@ -155,7 +155,7 @@ public class issueBook extends javax.swing.JFrame {
         btnIssue.setBackground(new java.awt.Color(0, 204, 0));
         btnIssue.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnIssue.setForeground(new java.awt.Color(0, 0, 0));
-        btnIssue.setText("Add");
+        btnIssue.setText("Issue Book");
         btnIssue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIssueActionPerformed(evt);
@@ -216,7 +216,7 @@ public class issueBook extends javax.swing.JFrame {
         cmbReturnedDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Date", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         formAddMember.add(cmbReturnedDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 80, 40));
 
-        cmbReturnedMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec" }));
+        cmbReturnedMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         formAddMember.add(cmbReturnedMonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 80, 40));
 
         cmbIssueYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2021", "2022", "2022" }));
@@ -227,7 +227,7 @@ public class issueBook extends javax.swing.JFrame {
         });
         formAddMember.add(cmbIssueYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 80, 40));
 
-        cmbIssueMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec" }));
+        cmbIssueMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "01", "02", "03", "04", "05", "07", "08", "09", "10", "11", "12" }));
         formAddMember.add(cmbIssueMonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 80, 40));
 
         cmbIssueDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Date", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
