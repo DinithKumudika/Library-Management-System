@@ -201,9 +201,7 @@ public class Book extends DBConnection{
                                 String publisher =rs.getString("publisher");
                                 String category = rs.getString("Category");
                                 int availability = rs.getInt("availability");
-                                
-                                Timestamp created =rs.getTimestamp("created_at");
-                                LocalDateTime localDateTime = created.toLocalDateTime();
+                               
 	    			Book book1 = new Book(id, title, isbn, author, publisher, category, availability);
 	    			book.add(book1);
 	    		}
