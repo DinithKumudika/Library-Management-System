@@ -197,59 +197,24 @@ public class UpdateBook extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        /* String id = lblBookId.getText();
+        int id = Integer.parseInt(lblIdNo.getText());
         String title = tfBookTitle.getText();
         String isbn = tfISBN.getText();
         String author = tfAuthor.getText();
         String publisher = tfPublisher.getText();
         String category = cmbCategory.getSelectedItem().toString();
         String availability = cmbAvailability.getSelectedItem().toString();
-        
-        if(title.equals("") || isbn.equals("")|| author.equals("") || publisher.equals("") || category.equals("Select category...")){
-            JOptionPane.showMessageDialog(null, "Book details required!", "Alert", JOptionPane.WARNING_MESSAGE);
-        }
-        else{
-            int av;
-            if(availability=="Available"){
-                av=1;
-            }
-            else{
-                av=0;
-            }
-           Book book = new Book(Integer.parseInt(id), title, Integer.parseInt(isbn), author, publisher, category, av);
-        
-            if(!book.isValidBook()){
-            JOptionPane.showMessageDialog(null, "Book already exists!" ,"Alert", JOptionPane.WARNING_MESSAGE);
-            }
-            else{
-                book.updateBook(book);
-               // book.updateBook(0, title, Integer.parseInt(isbn), author, publisher, category, av);
-                ManageBooks mBooks = new ManageBooks();
-                mBooks.loadTable();
-               // JOptionPane.showMessageDialog(null, "Book updated successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
-            } 
-        }
-        */
-        int id = Integer.parseInt(lblIdNo.getText()); 
-        String title = tfBookTitle.getText();
-        String isbn = tfISBN.getText();
-        String author = tfAuthor.getText();
-        String publisher = tfPublisher.getText();
-        String category = cmbCategory.getSelectedItem().toString();
-        String availability = cmbAvailability.getSelectedItem().toString();
-        
+
         int av;
-            if(availability=="Available"){
-                av=1;
-            }
-            else{
-                av=0;
-            }
-        
-        if(title.equals("") || isbn.equals("") || author.equals("") || publisher.equals("")|| category.equals("")|| availability.equals("")){
+        if (availability == "Available") {
+            av = 1;
+        } else {
+            av = 0;
+        }
+
+        if (title.equals("") || isbn.equals("") || author.equals("") || publisher.equals("") || category.equals("") || availability.equals("")) {
             JOptionPane.showMessageDialog(null, "Book details are required!", "Alert", JOptionPane.WARNING_MESSAGE);
-        } 
-        else{
+        } else {
             Book book = new Book(id, title, Integer.parseInt(isbn), author, publisher, category, av);
             book.update(id);
             JOptionPane.showMessageDialog(null, "Book updated!", "Info", JOptionPane.INFORMATION_MESSAGE);

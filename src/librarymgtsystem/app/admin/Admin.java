@@ -30,7 +30,7 @@ public Admin (String firstName, String lastName, String username, String passwor
         this.username = username;
         this.username = password;
     }
-
+/*
 private boolean checkLibrarianExist(){
         
         boolean isExist = false;
@@ -80,6 +80,6 @@ private boolean checkLibrarianExist(){
             System.out.println(e.getMessage());
         }
     }
-
+*/
 
 }

@@ -6,7 +6,9 @@ package librarymgtsystem.ui.addLibrarian;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import librarymgtsystem.app.admin.Admin;
+import librarymgtsystem.app.librarian.Librarian;
+import librarymgtsystem.ui.manageLibrarians.manageLibrarians;
+import static librarymgtsystem.ui.manageLibrarians.manageLibrarians.loadTable;
 /**
  *
  * @author Omicron
@@ -165,7 +167,7 @@ public class addLibrarian extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Password should include 8 characters!", "Alert", JOptionPane.WARNING_MESSAGE);
         }
         else{
-            Admin librarian = new Admin(firstName, lastName, username, password);
+            Librarian librarian = new Librarian(0,firstName, lastName, username, password);
 
             if(!librarian.isValidLibrarian()){
                 JOptionPane.showMessageDialog(null, "Librarian already exists!" ,"Alert", JOptionPane.WARNING_MESSAGE);
@@ -173,6 +175,7 @@ public class addLibrarian extends javax.swing.JFrame {
             else{
                 librarian.addLibrarian();
                 JOptionPane.showMessageDialog(null, "Librarian added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                loadTable();
             }
         }
     }//GEN-LAST:event_btnAddActionPerformed
